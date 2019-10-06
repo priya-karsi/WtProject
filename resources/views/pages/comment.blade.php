@@ -2,6 +2,15 @@
     @section('content')
         <form method="POST" action="{{ url('/comment') }}" aria-label="{{ __('Comment') }}">
             @csrf
+
+            <select name="standard" id="standard">
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+            </select>
+              <div id="print">
+
+              </div>
             <div class="form-group row">
                     <label for="comment" class="col-md-4 col-form-label text-md-right">{{ __('Comment') }}</label>
 
@@ -16,4 +25,16 @@
                         </button>
                     </div>
                 </div>
+                <script>
+                        $(document).ready(function() {
+                            $('#standard').change(function() {
+                                var hi = $(this).val();
+                                $('#print').html(hi);
+                                var students = <?php echo json_encode($students); ?>;
+                                $('#print').html(students);
+                                console.log(students);
+                            });
+                        });
+                       
+                    </script>
     @endsection
