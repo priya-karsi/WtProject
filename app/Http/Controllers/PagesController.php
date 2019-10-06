@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Auth;
 use App\Comment;
 use App\Schedule;
+use Cookie;
 
 class PagesController extends Controller
 {
@@ -25,11 +26,16 @@ class PagesController extends Controller
         return view('pages/comment')-> with('students',$students);
     }
     public function storecomment(Request $request) {
+        $teacher = Teacher::where('name',$request['teacher_name'])->first();
+        $tid = $teacher['id'];
+        $student = Student::where('name',$request['student_name'])->first();
+        $id = $student['id'];
         $admin = Comment::create([
-            'teacher_id' => 1,
-            'student_id' => 1,
+            'teacher_id' => $tid,
+            'student_id' => $id,
             'comment' => $request['comment'],
         ]);
+        return redirect('\teacher');
     }
     // $admin = Admin::create([
     //     'name' => $request['name'],
