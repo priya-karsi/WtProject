@@ -1,13 +1,23 @@
     @extends('layouts/main')
     @section('content')
+    <script src="/js/Bootstrap/Select/bootstrap-select.js"></script>
+
         <form method="POST" action="{{ url('/comment') }}" aria-label="{{ __('Comment') }}">
             @csrf
-
-            <select name="standard" id="standard">
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-            </select>
+            <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                        <div class="form-group" >
+                                <select class="form-control"  name="standard" id="standard">
+                                        <option style="background-color:#d9d5d5; color:#566f90;" value="8">Standard VIII</option>
+                                        <option style="background-color:#d9d5d5; color:#566f90;" value="9">Standard IX</option>
+                                        <option style="background-color:#d9d5d5; color:#566f90;" value="10">Standard X</option>
+                                </select>
+                            </div>
+                </div>
+            </div>
+            
+    </div>
             <select id="student_name" name="student_name" required autocomplete="student_name"> 
                     
                 </select> 
