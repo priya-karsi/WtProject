@@ -87,7 +87,9 @@
                             <li><a href="{{ route('home') }}">Home</a></li>
                             <li><a href="{{ route('about') }}">About us</a></li>
                         </ul>
-                        @guest
+                        @guest('admin')
+                            @guest('teacher')
+                                @guest('student')
                         <ul style="margin-top:65px; margin-right:20px;" class="nav navbar-nav navbar-right">
                             <li>
                                     <div class="dropdown">
@@ -103,8 +105,9 @@
                                           </div>
                             </li>
                         </ul> 
+                            @endguest
+                        @endguest
                     @endguest
-        </nav>
                         <!-- Right Side Of Navbar -->
                         {{-- <ul class="navbar-nav ml-auto">
                             <!-- Authentication Links -->
@@ -124,9 +127,6 @@
                                     </form>
                                 </div>
                             @endauth
-                           
-                    </div>
-                </div>
             </nav>
         </div>
         
