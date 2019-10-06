@@ -1,5 +1,6 @@
     @extends('layouts/main')
     @section('content')
+    <script src="//cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
     <style>
         .down{
             background-color:#d9d5d5; 
@@ -21,7 +22,7 @@
         </div>
             <div class="container">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 col-lg-4">
                         <label for="teacher_id" style="font-size:18px;" class="col-form-label text-md-right">{{ __('To : ') }}</label>
                         <div class="form-group" >
                                 <select class="form-control"  name="standard" id="standard">
@@ -31,22 +32,36 @@
                                 </select>
                             </div>
                 </div>
+                <div class="col-md-2 col-lg-2"></div>
+                <div class="col-md-6 col-lg-6">
+                        <label for="teacher_id" style="font-size:18px;" class="col-form-label text-md-right">{{ __('Names of Students : ') }}</label>
+                        <div class="form-group" >
+                                <select class="down" id="student_name" name="student_name" required autocomplete="student_name"> 
+                    
+                                    </select> 
+                            </div>
+                </div>
             </div>
             
     </div>
-            <select id="student_name" name="student_name" required autocomplete="student_name"> 
-                    
-                </select> 
+            
               <div id="print">
 
               </div>
-            <div class="form-group row">
-                    <label for="comment" class="col-md-4 col-form-label text-md-right">{{ __('Comment') }}</label>
-
-                    <div class="col-md-6">
-                        <input value="Comment" id="comment" type="text" class="form-control" name="comment" required autocomplete="comment">
+              <div class="container">
+              <div class="form-group row">
+                <div class="col-md-3 col-lg-3">
+                                <label for="comment" style="font-size:18px;" class="col-md-4 col-form-label text-md-right">{{ __('Comments/Remarks:') }}</label>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                    <textarea value="Comment" id="comment" type="text" class="form-control" name="comment" required autocomplete="comment">
+                    </textarea>
                     </div>
-            </div>
+                <script>
+                    CKEDITOR.replace('comment');
+                </script>
+                </div>
+            
             
             <div class="form-group row mb-0">
                     <div class="col-md-6 offset-md-4">
