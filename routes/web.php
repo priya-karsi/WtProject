@@ -10,7 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/','PagesController@home')->name('home');
 
 Route::get('/about', 'PagesController@about')->name('about');
@@ -31,9 +30,13 @@ Route::post('/register/admin', 'Auth\RegisterController@createAdmin')->name('reg
 Route::post('/register/teacher', 'Auth\RegisterController@createTeacher')->name('register.teacher');
 Route::post('/register/student', 'Auth\RegisterController@createStudent')->name('register.student');
 
-Route::view('/home', 'home')->name('home');
+Route::view('/home', 'pages/home')->name('home');
 Route::view('/admin', 'admin')->middleware('auth:admin')->name('admin');
 Route::view('/teacher', 'teacher')->middleware('auth:teacher')->name('teacher');
+
+Route::get('/comment','PagesController@addcomment')->middleware('auth:teacher')->name('comment');
+Route::post('/comment','PagesController@storecomment')->name('comment');
+
 Route::view('/student', 'student')->middleware('auth:student')->name('student');
 Auth::routes();
 // Route::post('/logout', function() {
