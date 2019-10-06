@@ -28,7 +28,13 @@
                     <label for="comment" class="col-md-4 col-form-label text-md-right">{{ __('Comment') }}</label>
 
                     <div class="col-md-6">
-                        <input id="comment" type="text" class="form-control" name="comment" required autocomplete="comment">
+                        <input value="Comment" id="comment" type="text" class="form-control" name="comment" required autocomplete="comment">
+                    </div>
+            </div>
+            <div class="form-group row">
+                    <div class="col-md-6">
+                    <label for="teacher_id" class="col-md-4 col-form-label text-md-right">{{ __('Teacher_id') }}</label>
+                    <input value="{{ Auth::user()->name }}" id="teacher_id" type="text" class="form-control" name="teacher_name" required autocomplete="teacher_name" readonly="readonly\">
                     </div>
             </div>
             <div class="form-group row mb-0">

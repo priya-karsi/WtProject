@@ -16,7 +16,7 @@ class CreateLecturesTable extends Migration
         Schema::create('lectures', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('schedule');
-            $table->foreign('schedule')->references('id')->on('schedule')->ondelete('cascade');
+            $table->foreign('schedule')->references('id')->on('schedules')->ondelete('cascade');
             $table->time('time_in');
             $table->time('time_out');
             $table->unsignedBigInteger('teacher_id');
