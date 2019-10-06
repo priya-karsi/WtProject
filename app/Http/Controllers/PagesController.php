@@ -11,6 +11,7 @@ use Auth;
 use App\Comment;
 use App\Schedule;
 use Cookie;
+use DateTime;
 
 class PagesController extends Controller
 {
@@ -43,7 +44,18 @@ class PagesController extends Controller
     //     'password' => Hash::make($request['password']),
     // ]);
     public function viewSchedule() {
-        $schedule = Schedule::all();
-        return view('pages/schedule')->with('schedule',$schedule);
+        return view('pages/schedule');
+    }
+    public function createSchedule(Request $request) {
+        $day = new DateTime($request['date']);
+        $aday = $day->format('l'); 
+            $schedule = Schedule::create([
+            'date' => $request['date'],
+            'time_in' => $request['time_in'],
+            'time_out' => $request['time_out'],
+            'day' => $aday,
+            'standard' => $request['standard'],
+        ]);
+        return redirect('/admin')->with('success','SuccessFully Created');
     }
 }

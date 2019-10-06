@@ -37,7 +37,8 @@ Route::view('/teacher', 'teacher')->middleware('auth:teacher')->name('teacher');
 Route::get('/comment','PagesController@addcomment')->middleware('auth:teacher')->name('comment');
 Route::post('/comment','PagesController@storecomment')->name('comment');
 
-Route::get('/schedule','PagesController@viewSchedule');
+Route::get('/schedule','PagesController@viewSchedule')->middleware('auth:admin');
+Route::post('/schedule','PagesController@createSchedule')->middleware('auth:admin');
 
 Route::view('/student', 'student')->middleware('auth:student')->name('student');
 Auth::routes();

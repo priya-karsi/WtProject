@@ -16,7 +16,6 @@
                             </div>
                 </div>
             </div>
-            
     </div>
             <select id="student_name" name="student_name" required autocomplete="student_name"> 
                     
