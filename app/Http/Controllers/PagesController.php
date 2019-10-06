@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Auth;
 use App\Comment;
+use App\Schedule;
 
 class PagesController extends Controller
 {
@@ -36,6 +37,7 @@ class PagesController extends Controller
     //     'password' => Hash::make($request['password']),
     // ]);
     public function viewSchedule() {
-        return view('pages/schedule');
+        $schedule = Schedule::all();
+        return view('pages/schedule')->with('schedule',$schedule);
     }
 }
