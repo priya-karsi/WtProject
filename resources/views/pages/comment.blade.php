@@ -58,6 +58,7 @@
                 <script>
                         $(document).ready(function() {
                             $('#standard').change(function() {
+                                $('#student_name').children().remove().end();
                                 var hi = $(this).val();
                                 $('#print').html(hi);
                                 var students = <?php echo json_encode($students); ?>;
