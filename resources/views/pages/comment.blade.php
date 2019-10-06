@@ -8,6 +8,9 @@
                     <option value="9">9</option>
                     <option value="10">10</option>
             </select>
+            <select id="student_name" name="student_name" required autocomplete="student_name"> 
+                    
+                </select> 
               <div id="print">
 
               </div>
@@ -33,8 +36,25 @@
                                 var students = <?php echo json_encode($students); ?>;
                                 $('#print').html(students);
                                 console.log(students);
+                                
+                                $.each(students, function () {
+                                var flag=0
+                                $.each(this, function (name, value) {
+                                if(name=="standard" && value==hi){
+                                    flag = 1;
+                                }
+                                });
+                                if(flag==1)
+                                {
+                                    $.each(this, function (name, value) {
+                                    if(name=="name"){
+                                        $('#student_name').append(new Option(value,value))
+                                    }
+                                    });
+                                }
+
                             });
                         });
-                       
-                    </script>
-    @endsection
+                        });
+                </script>
+            @endsection
