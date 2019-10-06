@@ -37,12 +37,13 @@ Route::view('/teacher', 'teacher')->middleware('auth:teacher')->name('teacher');
 Route::get('/comment','PagesController@addcomment')->middleware('auth:teacher')->name('comment');
 Route::post('/comment','PagesController@storecomment')->name('comment');
 
+Route::get('/schedule','PagesController@viewSchedule');
+
 Route::view('/student', 'student')->middleware('auth:student')->name('student');
 Auth::routes();
 // Route::post('/logout', function() {
 //     return view('logout');
 // })->name('logout');
-
 
 //Route::post('/home', 'HomeController@index')->name('home');
 //Route::get('/home', 'HomeController@index')->name('home');

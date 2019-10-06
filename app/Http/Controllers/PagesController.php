@@ -35,4 +35,7 @@ class PagesController extends Controller
     //     'email' => $request['email'],
     //     'password' => Hash::make($request['password']),
     // ]);
+    public function viewSchedule() {
+        return view('pages/schedule');
+    }
 }

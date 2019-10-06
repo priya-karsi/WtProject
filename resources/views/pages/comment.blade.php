@@ -16,4 +16,5 @@
                         </button>
                     </div>
                 </div>
+                <!--<div>{{ $user = Auth::user() }}</div>-->
     @endsection
