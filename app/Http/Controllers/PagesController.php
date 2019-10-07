@@ -12,6 +12,7 @@ use App\Comment;
 use App\Schedule;
 use Cookie;
 use DateTime;
+use App\Lecture;
 
 class PagesController extends Controller
 {
@@ -57,6 +58,21 @@ class PagesController extends Controller
             'day' => $aday,
             'standard' => $request['standard'],
         ]);
-        return redirect('/admin')->with('success','SuccessFully Created');
+        echo $request;
+        // $id = $schedule->id;
+        // $request['no_lecs'] = 1;
+        // $i = $request['no_lecs'];
+        // $request['time_in_1'] = $request['time_in'];
+        // $request['time_out_1'] = $request['time_out'];
+        // $request['teacher_1'] = 1;
+        // for ($x = 1; $x <= $i; $x++) {
+        //     $lecture = Lecture::create([
+        //         'schedule' => $id,
+        //         'time_in' => $request['time_in_'+$x],
+        //         'time_out' => $request['time_out_'+$x],
+        //         'teacher' => $request['teacher_'+$x],
+        //     ]);
+        // }
+        // return redirect('/admin')->with('success','SuccessFully Created');
     }
 }
