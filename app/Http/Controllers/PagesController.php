@@ -44,7 +44,8 @@ class PagesController extends Controller
     //     'password' => Hash::make($request['password']),
     // ]);
     public function viewSchedule() {
-        return view('pages/schedule');
+        $teachers = Teacher::all();
+        return view('pages/schedule')->with('teachers',$teachers);
     }
     public function createSchedule(Request $request) {
         $day = new DateTime($request['date']);
