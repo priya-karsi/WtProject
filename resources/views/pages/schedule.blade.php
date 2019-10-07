@@ -36,11 +36,67 @@
                 <input id="time_out" type="time" class="form-control" name="time_out" required autocomplete="time_out">
             </div>
     </div>
+    <div class="form-group row">
+        <label for="no_lecs" class="col-md-4 col-form-label text-md-right">{{ __('Enter the number of lectures :') }}</label>
+
+        <div class="col-md-6">
+            <input id="no_lecs" class="form-control" name="no_lecs" required autocomplete="no_lecs" value="0" min="0" max="4" type="number" />
+        </div>
+</div>
+<div class="container">
+    <button id="show" type="button" class="btn btn-primary">
+        {{ __('Go!') }}
+    </button>
+    <div id="print"></div>
+</div>
+    
+    
     <div class="form-group row mb-0">
             <div class="col-md-6 offset-md-4">
                 <button type="submit" class="btn btn-primary">
                     {{ __('Submit') }}
                 </button>
             </div>
-        </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+        $("#show").click(function(){
+            var no = $("#no_lecs").val();
+            console.log(no);
+            var i=1;
+            for(i = 1; i<=no ; i++)
+            {
+                var y = document.createElement('LABEL');
+                y.setAttribute("for","time_in_"+i);
+                y.setAttribute("class","container");
+                y.innerHTML="<h1>Lecture "+i+"</h1>";
+                document.getElementById("print").appendChild(y);
+
+
+                var z = document.createElement('LABEL');
+                z.setAttribute("for","time_in_"+i);
+                z.setAttribute("class","col-md-4 col-form-label text-md-right");
+                z.innerHTML="Select Time in "+i;
+                document.getElementById("print").appendChild(z);
+                var y = document.createElement('INPUT');
+                y.setAttribute("type","time");
+                y.setAttribute("name","time_in_"+i);
+                y.setAttribute("class","col-md-8 form-control");
+                document.getElementById("print").appendChild(y);
+                
+                var z = document.createElement('LABEL');
+                z.setAttribute("for","time_in_"+i);
+                z.setAttribute("class","col-md-4 col-form-label text-md-right");
+                z.innerHTML="Select Time out "+i;
+                document.getElementById("print").appendChild(z);
+                var y = document.createElement('INPUT');
+                y.setAttribute("type","time");
+                y.setAttribute("name","time_in_"+i);
+                y.setAttribute("class","col-md-8 form-control");
+                document.getElementById("print").appendChild(y);
+            }
+            
+        });
+        });
+    </script>
 @endsection
