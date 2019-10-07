@@ -89,9 +89,13 @@
                             <li><a href="{{ route('about') }}">About us</a></li>
                         @auth('admin')
                             <li><a href="{{ route('schedule') }}">Make Schedule</a></li>
+                            <li><a href="#">Register</a></li>
+                            <li><a href="#">Send Email</a></li>
                         @endauth
                         @auth('teacher')
                         <li><a href="{{ route('comment') }}">Put Comment/Remarks</a></li>
+                        <li><a href="#">View Salary</a></li>
+                        <li><a href="#">View Schedule</a></li>
                         @endauth
                         </ul>
                         @guest('admin')
