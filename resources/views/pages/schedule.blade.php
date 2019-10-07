@@ -85,18 +85,39 @@
                 document.getElementById("print").appendChild(y);
                 
                 var z = document.createElement('LABEL');
-                z.setAttribute("for","time_in_"+i);
+                z.setAttribute("for","time_out_"+i);
                 z.setAttribute("class","col-md-4 col-form-label text-md-right");
                 z.innerHTML="Select Time out "+i;
                 document.getElementById("print").appendChild(z);
                 var y = document.createElement('INPUT');
                 y.setAttribute("type","time");
-                y.setAttribute("name","time_in_"+i);
+                y.setAttribute("name","time_out_"+i);
                 y.setAttribute("class","col-md-8 form-control");
                 document.getElementById("print").appendChild(y);
-            }
-            
+
+                var z = document.createElement('LABEL');
+                z.setAttribute("for","time_in_"+i);
+                z.setAttribute("class","col-md-4 col-form-label text-md-right");
+                z.innerHTML="Select Teacher for "+i;
+                document.getElementById("print").appendChild(z);
+
+                teacher();            }
+
         });
+        function teacher() {
+            var teachers = <?php echo json_encode($teachers); ?>;
+            console.log(teachers);
+            $.each(students, function () {
+                                var flag=0
+                                $.each(this, function (name, value) {
+                                    $.each(this, function (name, value) {
+                                    if(name=="name"){
+                                        $('#student_name').append(new Option(value,value))
+                                    }
+                                }
+
+                            });
+        }
         });
     </script>
 @endsection
