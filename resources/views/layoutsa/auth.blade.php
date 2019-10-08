@@ -50,23 +50,29 @@
         padding:20px;
     }
     .n1{
-        background-color:#566f90;
-        color:#d9d5d5;
-        border: 1px solid #d9d5d5;
-
+        font-family: cursive; 
+        color:#566f90;
+        font-weight:bold;
+        font-size:23px;
+        border:8px solid #d9d5d5;
     }
+  
     </style>
 
 </head>
 <body>
-        <div style="padding-bottom:2%;">
-                <nav style="background-color:#d9d5d5;" class="navbar navbar-expand-sm">
+        <div >
+                <nav style="background-color:#d9d5d5;" class="navbar navbar-expand-sm ">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <a class="navbar-brand" href="{{ route('home') }}"><img src="{{ asset('logo.png') }}" alt="noimage.png" width=110px height=100px;></a>
     
                             <!-- Left Side Of Navbar -->
                             <ul class="navbar-nav">
                                 <li class="nav-item"><a class="nav-link n1" href="{{ route('home') }}">Home</a></li>
-                                <li class="nav-item"><a  class="nav-link n1" href="{{ route('about') }}">About us</a></li>
+                                <li class="nav-item"><a class="nav-link n1" href="{{ route('about') }}">About us</a></li>
                 
             @auth('admin')
                         <li><a class="nav-link n1" href="{{ route('schedule.admin') }}">Make Schedule</a></li>
@@ -160,6 +166,7 @@
                             </li>
                         </ul>
                         @endauth
+                    </div>
         </nav>
     </div>
     
