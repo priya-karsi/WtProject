@@ -106,7 +106,11 @@ class RegisterController extends Controller
 
     protected function createTeacher(Request $request)
     {
+        echo $request;
         $this->validator($request->all())->validate();
+        $request->cover_image->store('logos');
+        echo $request->cover_image;
+
         $teacher = Teacher::create([
             'name' => $request['name'],
             'email' => $request['email'],
@@ -116,8 +120,9 @@ class RegisterController extends Controller
             'subject' => $request['subject'],
             'description' => $request['description'],
             'phone_no' => $request['phone_no'],
+            'cover_image' => $request['cover_image'],
         ]);
-        return redirect()->intended('login/teacher');
+        //return redirect()->intended('login/teacher');
     }
 
     protected function createStudent(Request $request)
