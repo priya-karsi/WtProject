@@ -13,6 +13,7 @@ use App\Schedule;
 use Cookie;
 use DateTime;
 use App\Lecture;
+use Carbon\Carbon;
 
 class PagesController extends Controller
 {
@@ -76,10 +77,15 @@ class PagesController extends Controller
     public function studentschedule() {
         $user = Auth::user();
         $std = $user->standard;
-        $var = Schedule::where('standard',8)->orderBy('date','DESC')->get();
-        for($x = 0;$x < count($var); $x++) {
-            //echo '<h3>'.$var[$x]->date.'</h3><br>';
+        $schedules = Schedule::where('standard',8)->orderBy('date','DESC')->get();
+        $lectures = Lecture::all();
+        $teachers = Teacher::all();
+        $flag = 0;
+        $date = Carbon::now()->format('Y-m-d');
+        if($schedules[0]->date == $date)
+        {
+            $flag = 1;
         }
-        return view('pages/studentschedule')->with('schedules',$var);
+        return view('pages/studentschedule',['flag' => $flag,'schedules' => $schedules,'lectures' => $lectures,'teachers' => $teachers]);
     }
 }
