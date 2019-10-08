@@ -69,7 +69,7 @@
                                     <li class="nav-item"><a  class="nav-link n1" href="#">About us</a></li>
                     
                 @auth('admin')
-                            <li><a class="nav-link n1" href="{{ route('schedule') }}">Make Schedule</a></li>
+                            <li><a class="nav-link n1" href="{{ route('schedule.admin') }}">Make Schedule</a></li>
                             <li><a class="nav-link n1" href="#">Register</a></li>
                             <li><a class="nav-link n1" href="#">Send Email</a></li>
                         @endauth
