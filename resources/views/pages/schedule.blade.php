@@ -49,6 +49,7 @@
     </button>
     <div id="print"></div>
 </div>
+
     
     
     <div class="form-group row mb-0">
@@ -95,29 +96,32 @@
                 y.setAttribute("class","col-md-8 form-control");
                 document.getElementById("print").appendChild(y);
 
-                var z = document.createElement('LABEL');
-                z.setAttribute("for","time_in_"+i);
-                z.setAttribute("class","col-md-4 col-form-label text-md-right");
-                z.innerHTML="Select Teacher for "+i;
-                document.getElementById("print").appendChild(z);
+                
 
-                teacher();            }
+                // teacher(i);           
+         }
 
         });
-        function teacher() {
-            var teachers = <?php echo json_encode($teachers); ?>;
-            console.log(teachers);
-            $.each(students, function () {
-                                var flag=0
-                                $.each(this, function (name, value) {
-                                    $.each(this, function (name, value) {
-                                    if(name=="name"){
-                                        $('#student_name').append(new Option(value,value))
-                                    }
-                                }
+        // function teacher(i) {
+        //     var teachers = <?php echo json_encode($teachers); ?>;
+        //     console.log(teachers);
+        //     var z = document.createElement('SELECT');
+        //     z.id = "teacher_name";
+        //     document.getElementById("print").appendChild(z);
 
-                            });
-        }
+        //     for (var i = 0; i < teachers.length; i++) {
+        //         var teacher = teachers[i];
+        //         var option = document.createElement("option");
+        //         option.value = teacher[i];
+        //         option.text = teacher[i];
+        //         z.appendChild(option);
+        //     }
+        //         // z.setAttribute("for","time_in_"+i);
+        //         // z.setAttribute("class","col-md-4 col-form-label text-md-right");
+        //         // z.innerHTML="Select Teacher for "+i;
+        //         // document.getElementById("print").appendChild(z);
+            
+        // }
         });
     </script>
 @endsection

@@ -20,36 +20,12 @@
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-        
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  
 	<style>
-		.navbar {
-         min-height: 100px;
-        }
-        .navbar-brand {
-		padding: 0px;
-        padding-right:10px;
-		}	
-		.navbar-toggle {
-		/* (80px - button height 34px) / 2 = 23px */
-		margin-top: 23px;
-		  padding: 9px 10px !important;
-		}
-		.navbar-nav > li > a {
-			/* (80px - line-height of 27px) / 2 = 26.5px */
-			padding-top: 20px;
-			padding-bottom: 6px;
-			line-height: 8px;
-			margin-top:65px;
-			margin-bottom:0px;
-			background-color:#566f90;
-			color:#d9d5d5;
-		  }
-		  .navbar-custom {
-			background-color:#d9d5d5;
-		}
 		.size{
 			font-size:30px;
 			font-weight:bold;
@@ -73,45 +49,51 @@
 			list-style-type:square;
 			padding:20px;
 		}
+        .n1{
+            background-color:#566f90;
+            color:#d9d5d5;
+            border: 1px solid #d9d5d5;
+
+        }
         </style>
 
     </head>
     <body>
-        <div>
-            <nav class="navbar navbar-top navbar-custom">
-                    <div class="navbar-header">
-                            <a class="navbar-brand" href="#"><img src="logo.png" alt="noimage.png" width=110px height=100px;></a>
-                        </div>
-
-                        <!-- Left Side Of Navbar -->
-                        <ul class="nav navbar-nav">
-                            <li><a href="{{ route('home') }}">Home</a></li>
-                            <li><a href="{{ route('about') }}">About us</a></li>
-                        @auth('admin')
-                            <li><a href="{{ route('schedule') }}">Make Schedule</a></li>
-                            <li><a href="#">Register</a></li>
-                            <li><a href="#">Send Email</a></li>
+            <div>
+                    <nav style="background-color:#d9d5d5;" class="navbar navbar-expand-sm">
+                        <a class="navbar-brand" href="#"><img src="logo.png" alt="noimage.png" width=110px height=100px;></a>
+        
+                                <!-- Left Side Of Navbar -->
+                                <ul class="navbar-nav">
+                                    <li class="nav-item"><a class="nav-link n1" href="#">Home</a></li>
+                                    <li class="nav-item"><a  class="nav-link n1" href="#">About us</a></li>
+                    
+                @auth('admin')
+                            <li><a class="nav-link n1" href="{{ route('schedule') }}">Make Schedule</a></li>
+                            <li><a class="nav-link n1" href="#">Register</a></li>
+                            <li><a class="nav-link n1" href="#">Send Email</a></li>
                         @endauth
                         @auth('teacher')
-                        <li><a href="{{ route('comment') }}">Put Comment/Remarks</a></li>
-                        <li><a href="#">View Salary</a></li>
-                        <li><a href="#">View Schedule</a></li>
+                        <li><a class="nav-link n1" href="{{ route('comment') }}">Put Comment/Remarks</a></li>
+                        <li><a class="nav-link n1" href="#">View Salary</a></li>
+                        <li><a class="nav-link n1" href="#">View Schedule</a></li>
                         @endauth
                         </ul>
                         @guest('admin')
                             @guest('teacher')
                                 @guest('student')
-                        <ul style="margin-top:65px; margin-right:20px;" class="nav navbar-nav navbar-right">
+                                
+                        <ul class="navbar-nav ml-auto" >
                             <li>
                                     <div class="dropdown">
-                                            <button style="background-color:#566f90" class="btn btn-default dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Log In!
+                                            <button class="btn btn-default dropdown-toggle n1" id="menu1" type="button" data-toggle="dropdown">Log In!
                                             <span class="caret"></span></button>
                                             <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                              <li role="presentation"><a role="menuitem" tabindex="-1" href= "{{ route('login.admin') }}">Admin</a></li>
+                                              <li class="nav-item" role="presentation"><a class="nav-link n1" role="menuitem" tabindex="-1" href= "{{ route('login.admin') }}">Admin</a></li>
                                               <li role="presentation" class="divider"></li>
-                                              <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('login.teacher') }}">Teacher</a></li>
+                                              <li class="nav-item" role="presentation"><a class="nav-link n1" role="menuitem" tabindex="-1" href="{{ route('login.teacher') }}">Teacher</a></li>
                                               <li role="presentation" class="divider"></li>
-                                              <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('login.student') }}">Student</a></li>
+                                              <li class="nav-item" role="presentation"><a class="nav-link n1" role="menuitem" tabindex="-1" href="{{ route('login.student') }}">Student</a></li>
                                             </ul>
                                           </div>
                             </li>
@@ -127,8 +109,10 @@
                                     Hi There <span class="caret"></span>
                                 </a> --}}
                             @auth
-                                <div class="nav navbar-nav navbar-right">
-                                    <a href="{{ route('logout') }}"
+                            <ul class="navbar-nav ml-auto">
+                                <li>
+                                <div class="navbar-nav nav-item navbar-right">
+                                    <a class="nav-link n1" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
@@ -137,6 +121,8 @@
                                         @csrf
                                     </form>
                                 </div>
+                            </li>
+                        </ul>
                             @endauth
             </nav>
         </div>
