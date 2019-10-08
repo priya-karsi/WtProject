@@ -59,14 +59,14 @@
 
     </head>
     <body>
-            <div>
+            <div style="padding-bottom:2%;">
                     <nav style="background-color:#d9d5d5;" class="navbar navbar-expand-sm">
-                        <a class="navbar-brand" href="#"><img src="logo.png" alt="noimage.png" width=110px height=100px;></a>
+                        <a class="navbar-brand" href="{{ route('home') }}"><img src="logo.png" alt="noimage.png" width=110px height=100px;></a>
         
                                 <!-- Left Side Of Navbar -->
                                 <ul class="navbar-nav">
-                                    <li class="nav-item"><a class="nav-link n1" href="#">Home</a></li>
-                                    <li class="nav-item"><a  class="nav-link n1" href="#">About us</a></li>
+                                    <li class="nav-item"><a class="nav-link n1" href="{{ route('home') }}">Home</a></li>
+                                    <li class="nav-item"><a  class="nav-link n1" href="{{ route('about') }}">About us</a></li>
                     
                 @auth('admin')
                             <li><a class="nav-link n1" href="{{ route('schedule.admin') }}">Make Schedule</a></li>
@@ -80,7 +80,7 @@
                         @endauth
 
                         @auth('student')
-                        <li><a href="{{ route('schedule.student') }}">View Schedule</a></li>
+                        <li><a class="nav-link n1" href="{{ route('schedule.student') }}">View Schedule</a></li>
                         @endauth
                         </ul>
                         @guest('admin')
@@ -112,7 +112,7 @@
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     Hi There <span class="caret"></span>
                                 </a> --}}
-                            @auth
+                            @auth('admin')
                             <ul class="navbar-nav ml-auto">
                                 <li>
                                 <div class="navbar-nav nav-item navbar-right">
@@ -127,6 +127,38 @@
                                 </div>
                             </li>
                         </ul>
+                            @endauth
+                            @auth('teacher')
+                            <ul class="navbar-nav ml-auto">
+                                    <li>
+                                    <div class="navbar-nav nav-item navbar-right">
+                                        <a class="nav-link n1" href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    </div>
+                                </li>
+                            </ul>
+                            @endauth
+                            @auth('student')
+                            <ul class="navbar-nav ml-auto">
+                                    <li>
+                                    <div class="navbar-nav nav-item navbar-right">
+                                        <a class="nav-link n1" href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    </div>
+                                </li>
+                            </ul>
                             @endauth
             </nav>
         </div>
