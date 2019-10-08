@@ -101,23 +101,24 @@
                 z.innerHTML="Select Teacher for "+i;
                 document.getElementById("print").appendChild(z);
 
-                teacher();            }
+                var z = document.createElement('SELECT');
+                z.setAttribute("name","teacher_"+i);
+                z.setAttribute("class","down");
+                z.setAttribute("id","select_"+i);
+                document.getElementById("print").appendChild(z);
 
+
+                var teachers = <?php echo json_encode($teachers); ?>;
+                //console.log(teachers);
+                $.each( teachers, function(key,value) {
+                    $.each(this, function(key, value) {
+                        if(key=="name") {
+                            $('#select_'+i).append(new Option(value,value));
+                        }
+                    });
+                });
+            }
         });
-        function teacher() {
-            var teachers = <?php echo json_encode($teachers); ?>;
-            console.log(teachers);
-            $.each(students, function () {
-                                var flag=0
-                                $.each(this, function (name, value) {
-                                    $.each(this, function (name, value) {
-                                    if(name=="name"){
-                                        $('#student_name').append(new Option(value,value))
-                                    }
-                                }
-
-                            });
-        }
         });
     </script>
 @endsection
