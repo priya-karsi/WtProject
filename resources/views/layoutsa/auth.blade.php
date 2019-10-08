@@ -78,6 +78,10 @@
                         <li><a class="nav-link n1" href="#">View Salary</a></li>
                         <li><a class="nav-link n1" href="#">View Schedule</a></li>
                         @endauth
+
+                        @auth('student')
+                        <li><a href="{{ route('schedule.student') }}">View Schedule</a></li>
+                        @endauth
                         </ul>
                         @guest('admin')
                             @guest('teacher')

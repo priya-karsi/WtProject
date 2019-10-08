@@ -2,7 +2,7 @@
 @section('content')
 <script src="/js/Bootstrap/Select/bootstrap-select.js"></script>
 
-<form method="POST" action="{{ url('/schedule') }}" aria-label="{{ __('Schedule') }}">
+<form method="POST" action="{{ url('/schedule/admin') }}" aria-label="{{ __('Schedule') }}">
     @csrf
     <div class="row">
             <div class="col-md-4">
@@ -98,30 +98,24 @@
 
                 
 
-                // teacher(i);           
-         }
+                var z = document.createElement('SELECT');
+                z.setAttribute("name","teacher_"+i);
+                z.setAttribute("class","down");
+                z.setAttribute("id","select_"+i);
+                document.getElementById("print").appendChild(z);
 
+
+                var teachers = <?php echo json_encode($teachers); ?>;
+                //console.log(teachers);
+                $.each( teachers, function(key,value) {
+                    $.each(this, function(key, value) {
+                        if(key=="name") {
+                            $('#select_'+i).append(new Option(value,value));
+                        }
+                    });
+                });
+            }
         });
-        // function teacher(i) {
-        //     var teachers = <?php echo json_encode($teachers); ?>;
-        //     console.log(teachers);
-        //     var z = document.createElement('SELECT');
-        //     z.id = "teacher_name";
-        //     document.getElementById("print").appendChild(z);
-
-        //     for (var i = 0; i < teachers.length; i++) {
-        //         var teacher = teachers[i];
-        //         var option = document.createElement("option");
-        //         option.value = teacher[i];
-        //         option.text = teacher[i];
-        //         z.appendChild(option);
-        //     }
-        //         // z.setAttribute("for","time_in_"+i);
-        //         // z.setAttribute("class","col-md-4 col-form-label text-md-right");
-        //         // z.innerHTML="Select Teacher for "+i;
-        //         // document.getElementById("print").appendChild(z);
-            
-        // }
         });
     </script>
 @endsection
