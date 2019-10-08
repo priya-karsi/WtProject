@@ -77,7 +77,7 @@ class PagesController extends Controller
     public function studentschedule() {
         $user = Auth::user();
         $std = $user->standard;
-        $schedules = Schedule::where('standard',8)->orderBy('date','DESC')->get();
+        $schedules = Schedule::where('standard',$std)->orderBy('date','DESC')->get();
         $lectures = Lecture::all();
         $teachers = Teacher::all();
         $flag = 0;
@@ -87,5 +87,26 @@ class PagesController extends Controller
             $flag = 1;
         }
         return view('pages/studentschedule',['flag' => $flag,'schedules' => $schedules,'lectures' => $lectures,'teachers' => $teachers]);
+    }
+    public function teacherschedule() {
+        $user = Auth::user();
+        $id = $user->id;
+        $lectures = Lecture::where('teacher_id',$id)->get();
+        $schedules = Schedule::orderBy('date','DESC')->get();
+        $mainflag = 0;
+        $date = Carbon::now()->format('Y-m-d');
+        $var = 0;
+        $flag = 0;
+        for($x = 0;$x < count($lectures);$x++)
+        {
+            for($y = 0;$y <count($schedules);$y++)
+            {
+                if($lectures[$x]->schedule == $schedules[$y]->id && $schedules[$y]->date == $date)
+                {
+                    $flag = 1;
+                }
+            }
+        }
+        return view('pages/teacherschedule',['flag' => $flag,'lectures' => $lectures,'schedules' => $schedules]);
     }
 }
