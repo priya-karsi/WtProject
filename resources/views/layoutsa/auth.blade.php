@@ -61,7 +61,7 @@
     <body>
             <div style="padding-bottom:2%;">
                     <nav style="background-color:#d9d5d5;" class="navbar navbar-expand-sm">
-                        <a class="navbar-brand" href="#"><img src="logo.png" alt="noimage.png" width=110px height=100px;></a>
+                        <a class="navbar-brand" href="{{ route('home') }}"><img src="logo.png" alt="noimage.png" width=110px height=100px;></a>
         
                                 <!-- Left Side Of Navbar -->
                                 <ul class="navbar-nav">
