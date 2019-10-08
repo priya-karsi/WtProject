@@ -2,7 +2,7 @@
 @section('content')
 <script src="/js/Bootstrap/Select/bootstrap-select.js"></script>
 
-<form method="POST" action="{{ url('/schedule') }}" aria-label="{{ __('Schedule') }}">
+<form method="POST" action="{{ url('/schedule/admin') }}" aria-label="{{ __('Schedule') }}">
     @csrf
     <div class="row">
             <div class="col-md-4">

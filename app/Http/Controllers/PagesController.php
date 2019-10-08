@@ -46,7 +46,7 @@ class PagesController extends Controller
     // ]);
     public function viewSchedule() {
         $teachers = Teacher::all();
-        return view('pages/schedule')->with('teachers',$teachers);
+        return view('pages/adminschedule')->with('teachers',$teachers);
     }
     public function createSchedule(Request $request) {
         $day = new DateTime($request['date']);
@@ -72,5 +72,14 @@ class PagesController extends Controller
             ]);
         }
         return redirect('/admin')->with('success','SuccessFully Created');
+    }
+    public function studentschedule() {
+        $user = Auth::user();
+        $std = $user->standard;
+        $var = Schedule::where('standard',8)->orderBy('date','DESC')->get();
+        for($x = 0;$x < count($var); $x++) {
+            //echo '<h3>'.$var[$x]->date.'</h3><br>';
+        }
+        return view('pages/studentschedule')->with('schedules',$var);
     }
 }

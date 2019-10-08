@@ -11,7 +11,7 @@
                         @isset($url)
                         <form method="POST" action='{{ url("login/$url") }}' aria-label="{{ __('Login') }}">
                         @else
-                        <form method="POST" action="{{ route('home') }}">
+                        <form method="GET" action="{{ route('home') }}">
                         @endisset
                         @csrf
 
