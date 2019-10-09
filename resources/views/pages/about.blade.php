@@ -14,7 +14,7 @@
     <div class="container">
         <div class="card-columns d-flex justify-content-center">
                 <div class="card marg" style="margin-right:100px; margin-left:100px; ">
-                        <img class="card-img-top rounded-circle" src="none.png" alt="Card image" height=325px;>
+                        <img class="card-img-top" src="none.png" alt="Card image" height=325px;>
                         <div class="card-body">
                           <h4 class="card-title">Prof. Nitesh Karsi</h4>
                           <p class="card-text"><b>Hello, I am the cofounder of SGT. I have completed my engineering and I have done M.E. from ABC college. I believe in the base foundation of a child.</b></p>
@@ -24,7 +24,7 @@
                       
 
                       <div class="card marg" style="margin-left:100px; margin-right:100px;">
-                            <img class="card-img-top rounded-circle" src="none.png" alt="Card image" height=325px;>
+                            <img class="card-img-top " src="none.png" alt="Card image" height=325px;>
                             <div class="card-body">
                               <h4 class="card-title">Prof. Nitesh Karsi</h4>
                               <p class="card-text"><b>Hello, I am the cofounder of SGT. I have completed my engineering and I have done M.E. from ABC college. I believe in the base foundation of a child.</b></p>
@@ -36,7 +36,7 @@
         </div>
 
             
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-md-3 col-lg-3">
                 <img src="none.png" class="rounded-circle" style="border: 2px solid black;200px" alt="noimage" width=200px; height=225px; >        
         </div> 
@@ -55,12 +55,22 @@
                 <p style="color:#566f90; font-size:17px"><b>Hello, I am the cofounder of SGT. I have completed my engineering and I have done M.E. from ABC college. I believe in the base foundation of a child.</b></p>          
         </div> 
     </div>
-</div>
+</div> --}}
 <h2><b>Educators of our Institution!</b></h2>
+<div class="card-columns">
     @if(count($teachers) > 0)
         @foreach($teachers as $teacher)
-        <div class="row">
-                <hr>
+       
+                <div class="card" style="">
+                        <img class="card-img-top" src="none.png" alt="Card image" height=325px;>
+                        <div class="card-body">
+                                <h4 class="card-title" style="color:#566f90;"><u>Prof. {{ $teacher->name }}</u></h4>
+                                <p class="card-text">{{ $teacher->description }}</p>
+                            <p class="card-footer">Proud Teacher at SGT</p>
+                              </div>
+                      </div>
+                
+                {{-- <hr>
                 <div class="col-md-1 col-lg-1"></div>
                 <div class="col-md-2 col-lg-2">
                         <img src="none.png" class="rounded-circle" style="border: 2px solid black;200px alt="noimage" width=200px; height=225px; >        
@@ -71,9 +81,10 @@
                 <p>{{ $teacher->description }}</p>
                 <hr style="border: 1px solid black">
                 </div> 
-            </div>
+            </div> --}}
 
         @endforeach
+        </div>
     @else
         <p>No teachers!</p>
     @endif
