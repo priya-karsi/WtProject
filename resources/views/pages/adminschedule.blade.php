@@ -4,17 +4,16 @@
 
 <form method="POST" action="{{ url('/schedule/admin') }}" aria-label="{{ __('Schedule') }}">
     @csrf
-    <div class="row">
-            <div class="col-md-4">
-                    <div class="form-group" >
-                            <select class="form-control"  name="standard" id="standard">
-                                    <option style="background-color:#d9d5d5; color:#566f90;" value="8">Standard VIII</option>
-                                    <option style="background-color:#d9d5d5; color:#566f90;" value="9">Standard IX</option>
-                                    <option style="background-color:#d9d5d5; color:#566f90;" value="10">Standard X</option>
+    
+            
+                    <div class="form-group" style="text-align:center;" >
+                            <select class="justify-content-center" style="text-align:center; width:480px; font-size:30px; font-family:cursive" class="form-control"  name="standard" id="standard">
+                                    <option value="8">Standard VIII</option>
+                                    <option  value="9">Standard IX</option>
+                                    <option value="10">Standard X</option>
                             </select>
                         </div>
-            </div>
-        </div>
+    
     <div class="form-group row">
             <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Date') }}</label>
 
