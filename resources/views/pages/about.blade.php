@@ -5,19 +5,19 @@
         border:4px solid black;
     }
 </style>
-<h1 style="text-align:center ;color:#566f90;">
-    <u>Educational Qualifications and Work Profile of our Educators!</u>
+<h1 style="text-align:center ;color:#566f90; font-variant:small-caps" class="jumbotron">
+    <u >Educational Qualifications and Work Profile of our Educators!</u>
 </h1>
 <br>
-    <h2 ><b>Co-Founders of our Educational Institution!</b></h2>
+    <h2 style="text-align:center;font-family:'Times New Roman', Georgia, serif; font-size:40px;"><b>Co-Founders of our Educational Institution!</b></h2>
     <br>
     <div class="container">
         <div class="card-columns d-flex justify-content-center">
                 <div class="card marg" style="margin-right:100px; margin-left:100px; ">
                         <img class="card-img-top" src="none.png" alt="Card image" height=325px;>
                         <div class="card-body">
-                          <h4 class="card-title">Prof. Nitesh Karsi</h4>
-                          <p class="card-text"><b>Hello, I am the cofounder of SGT. I have completed my engineering and I have done M.E. from ABC college. I believe in the base foundation of a child.</b></p>
+                          <h1  style="color:#566f90; font-family:'21st Century', fantasy" class="card-title">Prof. Nitesh Karsi</h1>
+                          <p style="font-size:24px; font-family:cursive" class="card-text"><b>Hello, I am the cofounder of SGT. I have completed my engineering and I have done M.E. from ABC college. I believe in the base foundation of a child.</b></p>
                           <p class="card-footer">Co-Founder</p>
                         </div>
                       </div>
@@ -26,8 +26,8 @@
                       <div class="card marg" style="margin-left:100px; margin-right:100px;">
                             <img class="card-img-top " src="none.png" alt="Card image" height=325px;>
                             <div class="card-body">
-                              <h4 class="card-title">Prof. Nitesh Karsi</h4>
-                              <p class="card-text"><b>Hello, I am the cofounder of SGT. I have completed my engineering and I have done M.E. from ABC college. I believe in the base foundation of a child.</b></p>
+                              <h1 style="color:#566f90; font-family:'21st Century', fantasy" class="card-title">Prof. Nitesh Karsi</h1>
+                              <p style="font-size:24px; font-family:cursive" class="card-text"><b>Hello, I am the cofounder of SGT. I have completed my engineering and I have done M.E. from ABC college. I believe in the base foundation of a child.</b></p>
                           <p class="card-footer">Co-Founder</p>
                             </div>
                           </div>
@@ -56,19 +56,28 @@
         </div> 
     </div>
 </div> --}}
-<h2><b>Educators of our Institution!</b></h2>
-<div class="card-columns">
+<br><br>
+<h2 style="text-align:center;font-family:'Times New Roman', Georgia, serif;font-size:40px;"><b>Educators of our Institution!</b></h2>
+
     @if(count($teachers) > 0)
         @foreach($teachers as $teacher)
        
-                <div class="card" style="">
-                        <img class="card-img-top" src="none.png" alt="Card image" height=325px;>
-                        <div class="card-body">
-                                <h4 class="card-title" style="color:#566f90;"><u>Prof. {{ $teacher->name }}</u></h4>
-                                <p class="card-text">{{ $teacher->description }}</p>
-                            <p class="card-footer">Proud Teacher at SGT</p>
-                              </div>
-                      </div>
+                <div style="border:1px solid black; " class="card mb-3" >
+                    <div class="row no-gutters">
+                        <div class="col-md-4 col-lg-4">
+                          <img  style="" class="card-img-top" src="none.png" alt="Card image" height=325px; >
+                        </div>
+                    <div class="col-md-8 col-lg-8">
+                            <div class="card-body">
+                                    <h2 class="card-title" style="color:#566f90; font-family:'21st Century', fantasy"><u>Prof. {{ $teacher->name }}</u></h2>
+                                    <p style="font-size:24px; font-family:cursive" class="card-text">{{ $teacher->description }}</p>
+                                <p style="text-align:right;" class="card-footer blockquote">-Proud Teacher at SGT</p>
+                                  </div>
+                          </div>
+                    </div>
+                        
+                </div>
+ 
                 
                 {{-- <hr>
                 <div class="col-md-1 col-lg-1"></div>
@@ -84,7 +93,6 @@
             </div> --}}
 
         @endforeach
-        </div>
     @else
         <p>No teachers!</p>
     @endif
