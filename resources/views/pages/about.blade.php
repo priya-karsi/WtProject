@@ -65,7 +65,7 @@
                 <div style="border:1px solid black; " class="card mb-3" >
                     <div class="row no-gutters">
                         <div class="col-md-4 col-lg-4">
-                          <img  style="" class="card-img-top" src="none.png" alt="Card image" height=325px; >
+                            <img  style="" class="card-img-top" src="storage/cover_images/{{ $teacher->cover_image }}" alt="Card image" height=325px; >
                         </div>
                     <div class="col-md-8 col-lg-8">
                             <div class="card-body">
