@@ -99,12 +99,11 @@
     <div class="card-columns">
         @foreach($teachers as $teacher)
        
-                <div style="border:1px solid black; " class="card mb-3" >
-                    <div class="row no-gutters">
-                        <div class="col-md-4 col-lg-4">
+                <div style=" " class="card mb-3" >
+                    
+                        
                             <img  style="" class="card-img-top" src="storage/cover_images/{{ $teacher->cover_image }}" alt="Card image" height=325px; >
-                        </div>
-                    <div class="col-md-8 col-lg-8">
+
                             <div class="card-body">
                                     <h2 class="card-title" style="color:#566f90; font-family:'21st Century', fantasy"><u>Prof. {{ $teacher->name }}</u></h2>
                                     <p style="font-size:24px; font-family:cursive" class="card-text">{{ $teacher->description }}</p>

@@ -134,7 +134,7 @@ class RegisterController extends Controller
             'phone_no' => $request['phone_no'],
             'cover_image' => $fileNameToStore,
         ]);
-        //return redirect()->intended('login/teacher');
+        return redirect()->intended('login/teacher');
     }
 
     protected function createstudent(Request $request)
