@@ -26,9 +26,9 @@ Route::post('/login/admin', 'Auth\LoginController@adminLogin')->name('login.admi
 Route::post('/login/teacher', 'Auth\LoginController@teacherLogin')->name('login.teacher');
 Route::post('/login/student', 'Auth\LoginController@studentLogin')->name('login.student');
 
-Route::post('/register/admin', 'Auth\RegisterController@createadmin')->name('register.admin');
-Route::post('/register/teacher', 'Auth\RegisterController@createteacher')->name('register.teacher');
-Route::post('/register/student', 'Auth\RegisterController@createstudent')->name('register.student');
+Route::post('/register/admin', 'Auth\RegisterController@createadmin')->middleware('auth:admin')->name('register.admin');
+Route::post('/register/teacher', 'Auth\RegisterController@createteacher')->middleware('auth:admin')->name('register.teacher');
+Route::post('/register/student', 'Auth\RegisterController@createstudent')->middleware('auth:admin')->name('register.student');
 
 Route::view('/home', 'pages/home')->name('home');
 Route::view('/admin', 'admin')->middleware('auth:admin')->name('admin');

@@ -94,18 +94,6 @@ class PagesController extends Controller
         $lectures = Lecture::where('teacher_id',$id)->get();
         $schedules = Schedule::orderBy('date','DESC')->get();
         $date = Carbon::now()->format('Y-m-d');
-        $flag = 0;
-        for($x = 0;$x < count($lectures);$x++)
-        {
-            for($y = 0;$y <count($schedules);$y++)
-            {
-                if($lectures[$x]->schedule == $schedules[$y]->id && $schedules[$y]->date == $date)
-                {
-                    $tschedule = $schedules[$y];
-                    $flag = 1;
-                }
-            }
-        }
-        return view('pages/teacherschedule',['today' => $date,'flag' => $flag,'lectures' => $lectures,'schedules' => $schedules]);
+        return view('pages/teacherschedule',['today' => $date,'lectures' => $lectures,'schedules' => $schedules]);
     }
 }
