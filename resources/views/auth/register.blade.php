@@ -10,12 +10,12 @@
                 <div class="card-body">
                         @isset($url)
 
-                        <form method="POST" action='{{ url("register/$url") }}' aria-label="{{ __('Register') }}">
+                        {!! Form::open(['action' => 'Auth\RegisterController@create'.$url, 'method' => 'POST', 'enctype' => 'multipart/form-data',]) !!}
                         @else
                         
-                        <form method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}">
+                        {!! Form::open(['action' => '{{ route("register") }}', 'method' => 'POST', 'enctype' => 'multipart/form-data',]) !!}
                         @endisset
-                        @csrf
+                        {!! Form::token() !!}
 
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
@@ -162,7 +162,7 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
+                        {!! Form::close() !!}
                 </div>
             </div>
         </div>

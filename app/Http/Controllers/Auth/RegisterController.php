@@ -92,7 +92,7 @@ class RegisterController extends Controller
         return view('auth.register', ['url' => 'student']);
     }
 
-    protected function createAdmin(Request $request)
+    protected function createadmin(Request $request)
     {
         $this->validator($request->all())->validate();
 
@@ -104,12 +104,24 @@ class RegisterController extends Controller
         return redirect()->intended('login/admin');
     }
 
-    protected function createTeacher(Request $request)
+    protected function createteacher(Request $request)
     {
-        echo $request;
         $this->validator($request->all())->validate();
-        $request->cover_image->store('logos');
-        echo $request->cover_image;
+        // Handle File Upload
+        if($request->hasFile('cover_image')){
+            // Get filename with the extension
+            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just ext
+            $extension = $request->file('cover_image')->getClientOriginalExtension();
+            // Filename to store
+            $fileNameToStore= $filename.'_'.time().'.'.$extension;
+            // Upload Image
+            $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+        } else {
+            $fileNameToStore = 'noimage.jpg';
+        }
 
         $teacher = Teacher::create([
             'name' => $request['name'],
@@ -120,12 +132,12 @@ class RegisterController extends Controller
             'subject' => $request['subject'],
             'description' => $request['description'],
             'phone_no' => $request['phone_no'],
-            'cover_image' => $request['cover_image'],
+            'cover_image' => $fileNameToStore,
         ]);
         //return redirect()->intended('login/teacher');
     }
 
-    protected function createStudent(Request $request)
+    protected function createstudent(Request $request)
     {
         $this->validator($request->all())->validate();
         $student = Student::create([
