@@ -91,9 +91,10 @@ class PagesController extends Controller
     public function teacherschedule() {
         $user = Auth::user();
         $id = $user->id;
+        $mainsalary = $user->salary;
         $lectures = Lecture::where('teacher_id',$id)->get();
         $schedules = Schedule::orderBy('date','DESC')->get();
         $date = Carbon::now()->format('Y-m-d');
-        return view('pages/teacherschedule',['today' => $date,'lectures' => $lectures,'schedules' => $schedules]);
+        return view('pages/teacherschedule',['mainsalary' => $mainsalary,'today' => $date,'lectures' => $lectures,'schedules' => $schedules]);
     }
 }

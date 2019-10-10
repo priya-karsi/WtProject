@@ -15,6 +15,7 @@
         @endfor
     </div>
     <div>
+        <!-- {{ $salary = 0 }} -->
         <h1>Past Schedules:</h1>
         @for($y = 0;$y < count($lectures);$y++)
             @for($x = 0;$x < count($schedules);$x++)
@@ -22,10 +23,11 @@
                     <h1>{{ $schedules[$x]->date }}</h1>
                     <h3>{{ $lectures[$y]->time_in }}</h3> to <h3>{{ $lectures[$y]->time_out }}</h3>
                     Of <h2>{{ $schedules[$x]->standard }}<sup>th</sup> Standard</h2>
-                    {{-- @unset($schedules[$x]) --}}
+                    <!--{{ $salary++ }}-->
                 @endif
             @endfor
         @endfor
     </div>
+        <h1>Salary:{{ $mainsalary*$salary }}</h1>
 </div>
 @endsection

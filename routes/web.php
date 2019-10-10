@@ -41,7 +41,7 @@ Route::get('/schedule/admin','PagesController@viewSchedule')->middleware('auth:a
 Route::post('/schedule/admin','PagesController@createSchedule')->middleware('auth:admin');
 Route::get('/schedule/teacher','PagesController@teacherschedule')->middleware('auth:teacher')->name('schedule.teacher');
 Route::get('/schedule/student','PagesController@studentschedule')->middleware('auth:student')->name('schedule.student');
-
+Route::get('/salary','PagesController@viewsalary')->middleware('auth:teacher')->name('salary');
 
 Route::view('/student', 'student')->middleware('auth:student')->name('student');
 Auth::routes();

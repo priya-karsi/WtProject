@@ -93,7 +93,6 @@
                     @endauth
                     @auth('teacher')
                     <li><a class="nav-link n1" href="{{ route('comment') }}">Put Comment/Remarks</a></li>
-                    <li><a class="nav-link n1" href="#">View Salary</a></li>
                     <li><a class="nav-link n1" href="{{ route('schedule.teacher') }}">View Schedule</a></li>
                     @endauth
 
