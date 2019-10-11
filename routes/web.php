@@ -43,6 +43,10 @@ Route::get('/schedule/teacher','PagesController@teacherschedule')->middleware('a
 Route::get('/schedule/student','PagesController@studentschedule')->middleware('auth:student')->name('schedule.student');
 Route::get('/salary','PagesController@viewsalary')->middleware('auth:teacher')->name('salary');
 
+Route::get('/makeworksheet','PagesController@viewmakeworksheet')->middleware('auth:teacher')->name('makeworksheet');
+Route::post('/makeworksheet','PagesController@makeworksheet')->middleware('auth:teacher')->name('makeworksheet');
+Route::get('/viewworksheet','PagesController@viewworksheet')->middleware('auth:student')->name('viewworksheet');
+Route::get('/viewcomments','PagesController@viewcomments')->middleware('auth:student')->name('viewcomment');
 Route::view('/student', 'student')->middleware('auth:student')->name('student');
 Auth::routes();
 // Route::post('/logout', function() {

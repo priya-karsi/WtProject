@@ -14,6 +14,7 @@ use Cookie;
 use DateTime;
 use App\Lecture;
 use Carbon\Carbon;
+use App\Worksheet;
 
 class PagesController extends Controller
 {
@@ -96,5 +97,55 @@ class PagesController extends Controller
         $schedules = Schedule::orderBy('date','DESC')->get();
         $date = Carbon::now()->format('Y-m-d');
         return view('pages/teacherschedule',['mainsalary' => $mainsalary,'today' => $date,'lectures' => $lectures,'schedules' => $schedules]);
+    }
+
+    public function viewcomments() {
+        $user = Auth::user();
+        $id = $user->id;
+        $comments = Comment::where('student_id',$id)->get();
+        return view('pages/viewcomment',['comments' => $comments]);
+    }
+
+
+    public function viewmakeworksheet() {
+        return view('pages/makeworksheet');
+    }
+    public function makeworksheet (Request $request) {
+        if($request->hasFile('file')){
+            // Get filename with the extension
+            $filenameWithExt = $request->file('file')->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just ext
+            $extension = $request->file('file')->getClientOriginalExtension();
+            // Filename to store
+            $fileNameToStore= $filename.'_'.time().'.'.$extension;
+            // Upload Image
+            $path = $request->file('file')->storeAs('public/files', $fileNameToStore);
+        } else {
+            $fileNameToStore = 'noimage.jpg';
+        }
+        $teacher = Teacher::where('name',$request['teacher_name'])->get();
+        echo $teacher;
+        $tid = $teacher[0]->id;
+        $worksheet = Worksheet::create([
+            'teacher_id' => $tid,
+            'description' => $request['description'],
+            'standard' => $request['standard'],
+            'file' => $fileNameToStore,
+        ]);
+        return redirect('/teacher');
+    }
+    public function viewworksheet() {
+        $user = Auth::user();
+        $standard = $user->standard;
+        $worksheets = Worksheet::where('standard',$standard)->get();
+        for($x = 0;$x < count($worksheets);$x++)
+        {
+            $name = Teacher::where('id',$worksheets[$x]->teacher_id)->get();
+            $worksheets[$x]->teacher = $name[0]->name;
+            //echo $worksheets[$x]->teacher;
+        }
+        return view('pages/viewworksheet',['worksheets' => $worksheets]);
     }
 }

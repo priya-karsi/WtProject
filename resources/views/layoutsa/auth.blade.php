@@ -94,10 +94,13 @@
                     @auth('teacher')
                     <li><a class="nav-link n1" href="{{ route('comment') }}">Put Comment/Remarks</a></li>
                     <li><a class="nav-link n1" href="{{ route('schedule.teacher') }}">View Schedule</a></li>
+                    <li><a class="nav-link n1" href="{{ route('makeworksheet') }}">Make A Worksheet</a></li>
                     @endauth
 
                     @auth('student')
                     <li><a class="nav-link n1" href="{{ route('schedule.student') }}">View Schedule</a></li>
+                    <li><a class="nav-link n1" href="{{ route('viewworksheet') }}">View Worksheets</a></li>
+                    <li><a class="nav-link n1" href="{{ route('viewcomment') }}">View Remarks</a></li>
                     @endauth
                     </ul>
                     @guest('admin')
