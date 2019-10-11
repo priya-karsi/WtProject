@@ -2,7 +2,12 @@
 @section('content')
 <div class="container">
     <div class="jumbotron">
-        <h1>{{ $comments }}</h1>
+        {{ $comments }}
+            @if(count($comments) > 0)
+            @foreach($comments as $c)
+        <h1>{!! $c->comment !!}</h1>
+        @endforeach
+        @endif
     </div>
 </div>
 @endsection
