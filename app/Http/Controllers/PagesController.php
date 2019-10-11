@@ -15,6 +15,8 @@ use DateTime;
 use App\Lecture;
 use Carbon\Carbon;
 use App\Worksheet;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMailable;
 
 class PagesController extends Controller
 {
@@ -103,6 +105,12 @@ class PagesController extends Controller
         $user = Auth::user();
         $id = $user->id;
         $comments = Comment::where('student_id',$id)->get();
+        for($x = 0;$x < count($comments);$x++)
+        {
+            $teacher_id = Teacher::where('id',$comments[$x]->teacher_id)->get();
+            $comments[$x]->teacher_name = $teacher_id[0]->name;
+        }
+        //echo $comments;
         return view('pages/viewcomment',['comments' => $comments]);
     }
 
@@ -147,5 +155,18 @@ class PagesController extends Controller
             //echo $worksheets[$x]->teacher;
         }
         return view('pages/viewworksheet',['worksheets' => $worksheets]);
+    }
+    public function viewmail() {
+        $students = Student::all();
+        //echo $students;
+        return view('emails/viewmail',['students' => $students]);
+    }
+    public function mail(Request $request)
+    {
+        echo $request;
+        $name = 'Priya';
+        //Mail::to('2017.anshul.bahrani@ves.ac.in')->send(new SendMailable($name));
+   
+        //return redirect('/admin');
     }
 }

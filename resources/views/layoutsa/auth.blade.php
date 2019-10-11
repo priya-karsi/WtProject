@@ -89,7 +89,7 @@
                                 </ul>
                             </div>
                     </li>
-                        <li><a class="nav-link n1" href="#">Send Email</a></li>
+                    <li><a class="nav-link n1" href="{{ route('viewemail') }}">Send Email</a></li>
                     @endauth
                     @auth('teacher')
                     <li><a class="nav-link n1" href="{{ route('comment') }}">Put Comment/Remarks</a></li>
