@@ -46,6 +46,7 @@ class RegisterController extends Controller
             $this->middleware('guest:admin');
             $this->middleware('guest:student');
             $this->middleware('guest:teacher');
+            $this->middleware('auth:admin');
         }
 
     /**
@@ -101,7 +102,7 @@ class RegisterController extends Controller
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
         ]);
-        return redirect()->intended('login/admin');
+        return redirect('/admin');
     }
 
     protected function createteacher(Request $request)
