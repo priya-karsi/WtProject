@@ -35,7 +35,7 @@
         <h1 class="card-header">Past Schedules:</h1>
         @if(count($schedules) > 0)
             @for(;$x < count($schedules);$x++)
-                <h3>{{ $schedules[$x]->date }}</h3>
+                <h2 style="padding-left:20px;">For Day-{{ $schedules[$x]->date }}</h2>
                 @for($y = 0;$y < count($lectures);$y++)
                     @if($lectures[$y]->schedule == $schedules[$x]->id)
                     <div class="card">
@@ -43,19 +43,16 @@
                         <h3>{{ $lectures[$y]->time_in }} - {{ $lectures[$y]->time_out }}</h3>
                         @for($z = 0;$z < count($teachers);$z++)
                             @if($teachers[$z]->id == $lectures[$y]->teacher_id)
-                                <p>By {{ $teachers[$z]->name }}</p>
+                                <p><b>Subject : </b>{{ $teachers[$z]->subject }} </p>
+                            </div>
+                                <p class="card-footer">By Prof.{{ $teachers[$z]->name }}</p>
                             @endif
                         @endfor
                     @endif
                 @endfor
             @endfor
         @endif
-     </div>
 </div>
 </div>
      @endisset
-    <div class="calendar"></div>
-    <script>
-        $('.calendar').calendar();
-    </script>
 @endsection

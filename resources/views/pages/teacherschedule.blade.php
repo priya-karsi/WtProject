@@ -2,28 +2,34 @@
 @section('content')
 <div class="container">
     <div class="jumbotron">
-        <h1>Today's Schedule:</h1>
+        <div class="card">
+            
+        <h1 class="card-header">Today's Schedule:({{ $today }})</h1>
         @for($y = 0;$y < count($lectures);$y++)
             @for($x = 0;$x < count($schedules);$x++)
                 @if($schedules[$x]->date == $today && $lectures[$y]->schedule == $schedules[$x]->id)
-                    <h1>{{ $schedules[$x]->date }}</h1>
-                    <h3>{{ $lectures[$y]->time_in }}</h3> to <h3>{{ $lectures[$y]->time_out }}</h3>
-                    Of <h2>{{ $schedules[$x]->standard }}<sup>th</sup> Standard</h2>
+                <div class="card">
+                    <h3 class="card-body">{{ $lectures[$y]->time_in }} To {{ $lectures[$y]->time_out }}</h3>
+                    <h4 class="card-footer">Of {{ $schedules[$x]->standard }}<sup>th</sup> Standard</h4>
                     {{-- @unset($schedules[$x]) --}}
+                </div>
                 @endif
             @endfor
         @endfor
     </div>
-    <div>
+</div>
+    <div class="card">
         <!-- {{ $salary = 0 }} -->
-        <h1>Past Schedules:</h1>
+        <h1 class="card-header">Past Schedules:</h1>
         @for($y = 0;$y < count($lectures);$y++)
             @for($x = 0;$x < count($schedules);$x++)
                 @if($schedules[$x]->id == $lectures[$y]->schedule && $schedules[$x]->date != $today)
-                    <h1>{{ $schedules[$x]->date }}</h1>
-                    <h3>{{ $lectures[$y]->time_in }}</h3> to <h3>{{ $lectures[$y]->time_out }}</h3>
-                    Of <h2>{{ $schedules[$x]->standard }}<sup>th</sup> Standard</h2>
+                    <div class="card">
+                    <h1 class="card-header">{{ $schedules[$x]->date }}</h1>
+                    <h2 class="card-body">{{ $lectures[$y]->time_in }} To {{ $lectures[$y]->time_out }}</h2>
+                    <h3 class="card-footer">Of {{ $schedules[$x]->standard }}<sup>th</sup> Standard</h3>
                     <!--{{ $salary++ }}-->
+                </div>
                 @endif
             @endfor
         @endfor

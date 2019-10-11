@@ -46,7 +46,6 @@ class RegisterController extends Controller
             $this->middleware('guest:admin');
             $this->middleware('guest:student');
             $this->middleware('guest:teacher');
-            $this->middleware('auth:admin');
         }
 
     /**
@@ -102,7 +101,7 @@ class RegisterController extends Controller
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
         ]);
-        return redirect('/admin');
+        return redirect('login/admin');
     }
 
     protected function createteacher(Request $request)
@@ -135,7 +134,7 @@ class RegisterController extends Controller
             'phone_no' => $request['phone_no'],
             'cover_image' => $fileNameToStore,
         ]);
-        return redirect('/admin');
+        return redirect('/login/teacher');
     }
 
     protected function createstudent(Request $request)
@@ -150,6 +149,6 @@ class RegisterController extends Controller
             'standard' => $request['standard'],
             'phone_no' => $request['phone_no'],
         ]);
-        return redirect('/admin');
+        return redirect('/login/student');
     }
 }
