@@ -53,7 +53,7 @@
         font-family: cursive; 
         color:#566f90;
         font-weight:bold;
-        font-size:23px;
+        font-size:18px;
         border:8px solid #d9d5d5;
     }
   
@@ -80,12 +80,12 @@
                             <div class="dropdown">
                                 <button class="btn btn-default dropdown-toggle n1" id="menu1" type="button" data-toggle="dropdown">Register
                                 <span class="caret"></span></button>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                    <li class="nav-item" role="presentation"><a class="nav-link n1" role="menuitem" tabindex="-1" href= "{{ route('register.admin') }}">Admin</a></li>
+                                <ul class="dropdown-menu" style="background-color: #d9d5d5;" role="menu" aria-labelledby="menu1">
+                                    <li class="nav-item" role="presentation"><a style="background-color: #d9d5d5;" class="nav-link n1" role="menuitem" tabindex="-1" href= "{{ route('register.admin') }}">Admin</a></li>
                                     <li role="presentation" class="divider"></li>
-                                    <li class="nav-item" role="presentation"><a class="nav-link n1" role="menuitem" tabindex="-1" href="{{ route('register.teacher') }}">Teacher</a></li>
+                                    <li class="nav-item" role="presentation"><a style="background-color: #d9d5d5;" class="nav-link n1" role="menuitem" tabindex="-1" href="{{ route('register.teacher') }}">Teacher</a></li>
                                     <li role="presentation" class="divider"></li>
-                                    <li class="nav-item" role="presentation"><a class="nav-link n1" role="menuitem" tabindex="-1" href="{{ route('register.student') }}">Student</a></li>
+                                    <li class="nav-item" role="presentation"><a style="background-color: #d9d5d5;" class="nav-link n1" role="menuitem" tabindex="-1" href="{{ route('register.student') }}">Student</a></li>
                                 </ul>
                             </div>
                     </li>
@@ -110,14 +110,14 @@
                     <ul class="navbar-nav ml-auto" >
                         <li>
                                 <div class="dropdown">
-                                        <button class="btn btn-default dropdown-toggle n1" id="menu1" type="button" data-toggle="dropdown">Log In!
+                                        <button class="btn btn-default dropdown-toggle n1"  id="menu1" type="button" data-toggle="dropdown">Log In!
                                         <span class="caret"></span></button>
-                                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                            <li class="nav-item" role="presentation"><a class="nav-link n1" role="menuitem" tabindex="-1" href= "{{ route('login.admin') }}">Admin</a></li>
+                                        <ul class="dropdown-menu" style="background-color: #d9d5d5;" role="menu" aria-labelledby="menu1">
+                                            <li class="nav-item" style="background-color: #d9d5d5;" role="presentation"><a class="nav-link n1" style="background-color: #d9d5d5;" role="menuitem" tabindex="-1" href= "{{ route('login.admin') }}">Admin</a></li>
                                             <li role="presentation" class="divider"></li>
-                                            <li class="nav-item" role="presentation"><a class="nav-link n1" role="menuitem" tabindex="-1" href="{{ route('login.teacher') }}">Teacher</a></li>
+                                            <li class="nav-item" style="background-color: #d9d5d5;" role="presentation"><a class="nav-link n1" style="background-color: #d9d5d5;" role="menuitem" tabindex="-1" href="{{ route('login.teacher') }}">Teacher</a></li>
                                             <li role="presentation" class="divider"></li>
-                                            <li class="nav-item" role="presentation"><a class="nav-link n1" role="menuitem" tabindex="-1" href="{{ route('login.student') }}">Student</a></li>
+                                            <li class="nav-item"  style="background-color: #d9d5d5;" role="presentation"><a class="nav-link n1" style="background-color: #d9d5d5;" role="menuitem" tabindex="-1" href="{{ route('login.student') }}">Student</a></li>
                                         </ul>
                                         </div>
                         </li>
