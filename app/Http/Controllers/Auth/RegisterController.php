@@ -134,7 +134,7 @@ class RegisterController extends Controller
             'phone_no' => $request['phone_no'],
             'cover_image' => $fileNameToStore,
         ]);
-        return redirect()->intended('login/teacher');
+        return redirect('/admin');
     }
 
     protected function createstudent(Request $request)
@@ -149,7 +149,7 @@ class RegisterController extends Controller
             'standard' => $request['standard'],
             'phone_no' => $request['phone_no'],
         ]);
-        return redirect()->intended('login/student');
+        return redirect('/admin');
     }
 
 
