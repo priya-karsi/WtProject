@@ -195,9 +195,10 @@ let createTaskCard = () => {
     let div3 = document.createElement('div');
     let s = document.createElement('SELECT');
                 s.setAttribute("name","teacher_"+i);
-                s.setAttribute("class","down");
+                s.setAttribute("class","down form-control");
+                s.setAttribute("style","margin-top:10px;");
                 s.setAttribute("id","select_"+i);
-                //document.getElementById("card-container").appendChild(z);
+                document.getElementById("card-container").appendChild(s);
 
 
                 var teachers = <?php echo json_encode($teachers); ?>;
