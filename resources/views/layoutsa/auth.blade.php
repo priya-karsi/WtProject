@@ -50,11 +50,11 @@
         padding:20px;
     }
     .n1{
-        font-family: cursive; 
-        color:#566f90;
-        font-weight:bold;
-        font-size:18px;
-        border:8px solid #d9d5d5;
+        font-family: Georgia, 'Times New Roman', Times, serif; 
+        color:#ff6933;
+        /* font-weight:bold; */
+        font-size:20px;
+        border:8px solid #121254;
     }
   
     </style>
@@ -62,12 +62,12 @@
 </head>
 <body>
         <div >
-                <nav style="background-color:#d9d5d5;" class="navbar navbar-expand-sm ">
+                <nav style="background-color:#121254;" class="navbar navbar-expand-sm ">
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <a class="navbar-brand" href="{{ route('home') }}"><img src="{{ asset('logo.png') }}" alt="noimage.png" width=110px height=100px;></a>
+                    <a class="navbar-brand" href="{{ route('home') }}"><img src="{{ asset('logo1.png') }}" alt="noimage.png" width=130px height=120px;></a>
     
                             <!-- Left Side Of Navbar -->
                             <ul class="navbar-nav">
@@ -110,7 +110,7 @@
                     <ul class="navbar-nav ml-auto" >
                         <li>
                                 <div class="dropdown">
-                                        <button class="btn btn-default dropdown-toggle n1"  id="menu1" type="button" data-toggle="dropdown">Log In!
+                                        <button class="btn btn-default dropdown-toggle n1"  id="menu1" type="button" data-toggle="dropdown">Log In
                                         <span class="caret"></span></button>
                                         <ul class="dropdown-menu" style="background-color: #d9d5d5;" role="menu" aria-labelledby="menu1">
                                             <li class="nav-item" style="background-color: #d9d5d5;" role="presentation"><a class="nav-link n1" style="background-color: #d9d5d5;" role="menuitem" tabindex="-1" href= "{{ route('login.admin') }}">Admin</a></li>
