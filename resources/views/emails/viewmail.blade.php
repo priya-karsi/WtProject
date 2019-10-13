@@ -56,9 +56,9 @@
                 var students = <?php echo json_encode($students); ?>;
                 $('#print').html(students);
                 // console.log(students);
+                var i = 0;
                 $.each(students, function () {
                     var flag=0
-                    var i = 0;
                     $.each(this, function (name, value) {
                     if(name=="standard" && value==hi){
                         flag = 1;
@@ -66,32 +66,31 @@
                     });
                     if(flag==1)
                     {
+                        i++;
+                        console.log(i);
                         $.each(this, function (name, value) {
                         if(name=="name"){
                             let d1 = document.createElement('DIV');
-                            d1.setAttribute("class","form-group");
+                            d1.setAttribute("class","form-control");
                             d1.setAttribute("id","d"+i);
                             document.getElementById('print').appendChild(d1);
 
-                            
                             let i1 = document.createElement('INPUT');
                             i1.setAttribute("type","checkbox");
                             i1.setAttribute("name","students");
                             i1.setAttribute("id","students");
+                            i1.setAttribute("style","width:10%;")
                             i1.setAttribute("value",value);
                             document.getElementById('d'+i).appendChild(i1);
 
                             let l3 = document.createElement('LABEL');
                             l3.setAttribute("for","student_"+i);
-                            l3.setAttribute("class","form-control");
+                            l3.setAttribute("class","");
                             l3.innerHTML=value;
                             document.getElementById('d'+i).appendChild(l3);
-
-
                         }
                         });
                     }
-                    i++;
                 });
             });
             $("#send_in"). click(function(){
