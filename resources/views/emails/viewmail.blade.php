@@ -1,5 +1,16 @@
 @extends('layouts.main')
 @section('content')
+<style>
+        .s2{
+            background-image: url("{{ asset('/storage/bg/em.jpg') }}");
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+             background-blend-mode: lighten;
+             background-color: rgba(255, 255, 255, 0.5);
+        }
+    </style>
+    <div style="padding-top:100px;padding-bottom:30px;" class="s2">
 <div class="container">
     <form id="myForm" method="POST" action="{{ route('sendemail') }}">
     <div class="row">
@@ -36,6 +47,7 @@
             </div>
         </form>
     </div>
+</div>
 <script>
         $(document).ready(function() {
             $('#standard').change(function() {
@@ -61,6 +73,13 @@
                             d1.setAttribute("id","d"+i);
                             document.getElementById('print').appendChild(d1);
 
+                            
+                            let i1 = document.createElement('INPUT');
+                            i1.setAttribute("type","checkbox");
+                            i1.setAttribute("name","students");
+                            i1.setAttribute("id","students");
+                            i1.setAttribute("value",value);
+                            document.getElementById('d'+i).appendChild(i1);
 
                             let l3 = document.createElement('LABEL');
                             l3.setAttribute("for","student_"+i);
@@ -69,12 +88,6 @@
                             document.getElementById('d'+i).appendChild(l3);
 
 
-                            let i1 = document.createElement('INPUT');
-                            i1.setAttribute("type","checkbox");
-                            i1.setAttribute("name","students");
-                            i1.setAttribute("id","students");
-                            i1.setAttribute("value",value);
-                            document.getElementById('d'+i).appendChild(i1);
                         }
                         });
                     }
