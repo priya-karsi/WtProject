@@ -8,6 +8,24 @@
     font-size:20px;
 font-family: 'Open Sans', sans-serif;
 }
+
+.carousel-item img {
+     /* opacity: 1; */
+   }
+
+   .carousel-item.active,
+.carousel-item-next,
+.carousel-item-prev{
+    display:block;
+}
+.carousel-caption {
+    top: 30px;;
+    bottom: auto;
+}
+
+.carousel-item{
+    height:500px;
+}
 </style>
 <div id="demo" class="carousel slide" data-ride="carousel">
   <ul class="carousel-indicators">
@@ -17,16 +35,17 @@ font-family: 'Open Sans', sans-serif;
   </ul>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block w-100" src="class.jpg" alt="none.png" width="1100" height="500">
-      {{-- <div class="carousel-caption">
-        <h3 style="background-color:black;">Our annual celebration</h3>
-      </div>    --}}
+      <img class="d-block w-100" style="opacity:0.8 ;" src="c3.jpg" alt="none.png" width="1100" height="500">
+      <div class="carousel-caption">
+        <h1 style="font-family:cursive; color:#121254;">Knowledge is the key to success.</h1>
+        <p style="font-size:20px; color:darkslateblue;">Join us today at SGT.</p>
+      </div>   
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="r1.jpg" alt="none.png" width="1100" height="500">
-      {{-- <div class="carousel-caption">
-        <h3 style="background-color:black;">100/100 in mathematics</h3>
-      </div>    --}}
+      <img style="opacity:0.2" class="d-block w-100" src="c44.jpg" alt="none.png" width="1100" height="500">
+      <div class="carousel-caption">
+        <h1 style="color:#121254;">Conducting Interactive Sessions for children</h1>
+      </div>   
     </div>
     <div class="carousel-item">
       <img class="d-block w-100" src="logo.png" alt="none.png" width="1100" height="500">
