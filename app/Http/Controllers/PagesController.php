@@ -165,13 +165,14 @@ class PagesController extends Controller
     {
         $studentsinfo = $request['studentsinfo'];
         $students = explode(",",$studentsinfo);
-        echo gettype($students);
+        if(isset($students)) { 
         foreach($students as $student) {
-            //echo $student;
-            $std = Student::where('name',$student)->get();
-            $email = $std[0]->parent_email;
-            Mail::to($email)->send(new SendMailable($student));
+                $std = Student::where('name',$student)->get();
+                $email = $std[0]->parent_email;
+                Mail::to($email)->send(new SendMailable($std,$request['send_info']));
+
         }
+    }
    
         return redirect('/admin');
     }

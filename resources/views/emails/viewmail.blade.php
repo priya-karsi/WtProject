@@ -22,11 +22,15 @@
             </div>
         </div>
         <input type="hidden" name="studentsinfo" id="imp">
+        <input type="hidden" name="send_info" id="send_info">
         </div>
         <div class="form-group row mb-0">
                 <div class="col-md-6 offset-md-4">
-                    <button type="button" class="btn btn-primary">
-                        {{ __('Register') }}
+                    <button type="button" class="btn btn-primary" id="send_in">
+                        {{ __('Send_In') }}
+                    </button>
+                    <button type="button" class="btn btn-primary" id="send_out">
+                        {{ __('Send_Out') }}
                     </button>
                 </div>
             </div>
@@ -52,25 +56,32 @@
                     {
                         $.each(this, function (name, value) {
                         if(name=="name"){
+                            let d1 = document.createElement('DIV');
+                            d1.setAttribute("class","form-group");
+                            d1.setAttribute("id","d"+i);
+                            document.getElementById('print').appendChild(d1);
+
+
                             let l3 = document.createElement('LABEL');
                             l3.setAttribute("for","student_"+i);
                             l3.setAttribute("class","form-control");
                             l3.innerHTML=value;
-                            document.getElementById('print').appendChild(l3);
+                            document.getElementById('d'+i).appendChild(l3);
+
 
                             let i1 = document.createElement('INPUT');
                             i1.setAttribute("type","checkbox");
                             i1.setAttribute("name","students");
                             i1.setAttribute("id","students");
                             i1.setAttribute("value",value);
-                            document.getElementById('print').appendChild(i1);
+                            document.getElementById('d'+i).appendChild(i1);
                         }
                         });
                     }
                     i++;
                 });
             });
-            $("button"). click(function(){
+            $("#send_in"). click(function(){
                 var favorite = [];
                 $. each($("input[name='students']:checked"), function(){
                 favorite. push($(this). val());
@@ -78,6 +89,18 @@
                 console.log(favorite);
                 $('#imp').val(favorite);
                 console.log($('#imp').val())
+                $("#send_info").val('send_in')
+                $('#myForm').submit();
+        })
+            $("#send_out"). click(function(){
+                var favorite = [];
+                $. each($("input[name='students']:checked"), function(){
+                favorite. push($(this). val());
+                });
+                console.log(favorite);
+                $('#imp').val(favorite);
+                console.log($('#imp').val())
+                $("#send_info").val('send_out')
                 $('#myForm').submit();
         })
         });

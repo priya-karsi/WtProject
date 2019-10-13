@@ -17,9 +17,10 @@ class SendMailable extends Mailable
      *
      * @return void
      */
-    public function __construct($name)
+    public function __construct($student,$info)
     {
-        $this->name = $name;
+        $this->student = $student;
+        $this->info = $info;
     }
 
     /**
@@ -29,6 +30,6 @@ class SendMailable extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.mail');
+        return $this->view('emails.mail',['info' => $this->info,'student' => $this->student]);
     }
 }
