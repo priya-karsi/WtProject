@@ -29,6 +29,6 @@ class SendMailable extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.mail',['name' => $name]);
+        return $this->view('emails.mail');
     }
 }

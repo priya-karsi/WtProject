@@ -42,8 +42,8 @@ Route::post('/schedule/admin','PagesController@createSchedule')->middleware('aut
 Route::get('/schedule/teacher','PagesController@teacherschedule')->middleware('auth:teacher')->name('schedule.teacher');
 Route::get('/schedule/student','PagesController@studentschedule')->middleware('auth:student')->name('schedule.student');
 Route::get('/salary','PagesController@viewsalary')->middleware('auth:teacher')->name('salary');
-Route::post('/email', 'PagesController@mail')->middleware('auth:admin')->name('sendemail');
-Route::get('/email','PagesController@viewmail')->middleware('auth:admin')->name('viewemail');
+Route::post('/sendemail', 'PagesController@mail')->middleware('auth:admin')->name('sendemail');
+Route::get('/viewemail','PagesController@viewmail')->middleware('auth:admin')->name('viewemail');
 
 Route::get('/makeworksheet','PagesController@viewmakeworksheet')->middleware('auth:teacher')->name('makeworksheet');
 Route::post('/makeworksheet','PagesController@makeworksheet')->middleware('auth:teacher')->name('makeworksheet');

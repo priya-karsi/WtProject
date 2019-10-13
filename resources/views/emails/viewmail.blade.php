@@ -1,9 +1,9 @@
 @extends('layouts.main')
 @section('content')
 <div class="container">
-        {!! Form::open(['action' => 'PagesController@mail', 'method' => 'POST', 'enctype' => 'multipart/form-data',]) !!}
+    <form id="myForm" method="POST" action="{{ route('sendemail') }}">
     <div class="row">
-        
+        @csrf
         <div class="col-md-4 col-lg-4">
                 <label for="teacher_id" style="font-size:18px;" class="col-form-label text-md-right">{{ __('To : ') }}</label>
                 <div class="form-group" >
@@ -21,15 +21,16 @@
 
             </div>
         </div>
+        <input type="hidden" name="studentsinfo" id="imp">
         </div>
         <div class="form-group row mb-0">
                 <div class="col-md-6 offset-md-4">
-                    <button type="submit" class="btn btn-primary">
+                    <button type="button" class="btn btn-primary">
                         {{ __('Register') }}
                     </button>
                 </div>
             </div>
-        {!! Form::close() !!}
+        </form>
     </div>
 <script>
         $(document).ready(function() {
@@ -59,7 +60,7 @@
 
                             let i1 = document.createElement('INPUT');
                             i1.setAttribute("type","checkbox");
-                            i1.setAttribute("name","student[]");
+                            i1.setAttribute("name","students");
                             i1.setAttribute("id","students");
                             i1.setAttribute("value",value);
                             document.getElementById('print').appendChild(i1);
@@ -69,6 +70,16 @@
                     i++;
                 });
             });
+            $("button"). click(function(){
+                var favorite = [];
+                $. each($("input[name='students']:checked"), function(){
+                favorite. push($(this). val());
+                });
+                console.log(favorite);
+                $('#imp').val(favorite);
+                console.log($('#imp').val())
+                $('#myForm').submit();
         })
+        });
     </script>
 @endsection

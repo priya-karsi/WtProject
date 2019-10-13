@@ -163,14 +163,15 @@ class PagesController extends Controller
     }
     public function mail(Request $request)
     {
-        echo $request;
-        $students = $request['students'];
-        echo $students;
+        $studentsinfo = $request['studentsinfo'];
+        $students = explode(",",$studentsinfo);
+        echo gettype($students);
         foreach($students as $student) {
-            
+            //echo $student;
+            $std = Student::where('name',$student)->get();
+            $email = $std[0]->parent_email;
+            Mail::to($email)->send(new SendMailable($student));
         }
-        $name = 'Priya';
-        Mail::to('2017.anshul.bahrani@ves.ac.in')->send(new SendMailable($name));
    
         return redirect('/admin');
     }
