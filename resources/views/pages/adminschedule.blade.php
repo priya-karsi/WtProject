@@ -147,6 +147,7 @@
         $(document).ready(function() {
         $("#hs").hide();
         $("#show").click(function(){
+            $('#card-container').children().remove().end();
             var no = $("#no_lecs").val();
             console.log(no);
 
