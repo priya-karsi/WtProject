@@ -48,11 +48,11 @@
                                 <p class="card-footer">By Prof.{{ $teachers[$z]->name }}</p>
                             @endif
                         @endfor
+                        </div>
                     @endif
                 @endfor
             @endfor
         @endif
-</div>
 </div>
      @endisset
 @endsection

@@ -164,9 +164,14 @@ class PagesController extends Controller
     public function mail(Request $request)
     {
         echo $request;
+        $students = $request['students'];
+        echo $students;
+        foreach($students as $student) {
+            
+        }
         $name = 'Priya';
-        //Mail::to('2017.anshul.bahrani@ves.ac.in')->send(new SendMailable($name));
+        Mail::to('2017.anshul.bahrani@ves.ac.in')->send(new SendMailable($name));
    
-        //return redirect('/admin');
+        return redirect('/admin');
     }
 }

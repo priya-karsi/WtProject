@@ -59,8 +59,9 @@
 
                             let i1 = document.createElement('INPUT');
                             i1.setAttribute("type","checkbox");
-                            i1.setAttribute("name","student_"+i);
-                            i1.setAttribute("class","form-control");
+                            i1.setAttribute("name","student[]");
+                            i1.setAttribute("id","students");
+                            i1.setAttribute("value",value);
                             document.getElementById('print').appendChild(i1);
                         }
                         });
