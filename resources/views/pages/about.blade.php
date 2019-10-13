@@ -5,12 +5,12 @@
         border:4px solid black;
     }
 </style>
-<h1 style="text-align:center ;color:#566f90; font-variant:small-caps" class="">
+<h1 style="text-align:center ;color:#121254; font-variant:small-caps" class="">
     <u >Educational Qualifications and Work Profile of our Educators!</u>
 </h1>
 <br>
     <div class="card card-body bg-light">
-    <h2 style="text-align:center;font-family:'Times New Roman', Georgia, serif; font-size:40px;"><b>Co-Founders of our Educational Institution!</b></h2>
+    <h2 style="text-align:center;font-family:'Times New Roman', Georgia, serif; font-size:40px;background-color:#ff6933; color:#121254;"><b>Co-Founders of our Educational Institution</b></h2>
     <br>
     
     <div class="container">
@@ -21,9 +21,9 @@
                         </div>
                         <div class="col-md-8 col-lg-8">
                                 <div class="card-body">
-                                        <h1  style="color:#566f90; font-family:'21st Century', fantasy" class="card-title">Prof. Nitesh Karsi</h1>
+                                        <h1  style="color:#121254; font-family:'21st Century', fantasy" class="card-title">Prof. Nitesh Karsi</h1>
                                         <p style="font-size:24px; font-family:cursive" class="card-text"><b>Hello, I am the cofounder of SGT. I have completed my engineering and I have done M.E. from ABC college. I believe in the base foundation of a child.</b></p>
-                                        <p style="text-align:right; height:auto; width:auto;" class="card-footer blockquote">Co-Founder</p>
+                                        <p style="text-align:right; height:auto; width:auto; background-color:#121254;color:#FFAE77;" class="card-footer blockquote">Co-Founder</p>
                                       </div>  
                         </div>
                 </div>
@@ -33,9 +33,9 @@
                     <div class="row no-gutters">
                             <div class="col-md-8 col-lg-8">
                                     <div class="card-body">
-                                            <h1  style="color:#566f90; font-family:'21st Century', fantasy" class="card-title">Prof. Nitesh Karsi</h1>
+                                            <h1  style="color:#121254; font-family:'21st Century', fantasy" class="card-title">Prof. Nitesh Karsi</h1>
                                             <p style="font-size:24px; font-family:cursive" class="card-text"><b>Hello, I am the cofounder of SGT. I have completed my engineering and I have done M.E. from ABC college. I believe in the base foundation of a child.</b></p>
-                                            <p style="text-align:left; height:auto; width:auto;" class="card-footer blockquote">Co-Founder</p>
+                                            <p style="text-align:left; height:auto; width:auto; background-color:#121254;color:#FFAE77;" class="card-footer blockquote">Co-Founder</p>
                                           </div>  
                             </div>
                             <div class="col-md-4 col-lg-4">
@@ -93,42 +93,52 @@
 
 <br><br>
 <hr>
-<h2 style="text-align:center;font-family:'Times New Roman', Georgia, serif;font-size:40px;"><b>Educators of our Institution!</b></h2>
+<div class="row">
+        <div class="col-lg-4 col-md-4"></div>
+    <div class="col-lg-4 col-md-4">
+            <button style="background-color:#ff6933; color:#121254;" id="shs"><h2 >Educators of our Institution:</h2></button>
 
+    </div>
+    <div class="col-lg-4 col-md-4"></div>
+        
+</div>
+<br><br>
+
+    <div id="shows">
     @if(count($teachers) > 0)
-    <div class="card-columns">
-        @foreach($teachers as $teacher)
-       
-                <div style=" " class="card mb-3" >
+   
+        @for($x=0;$x<count($teachers);$x++)
+            @if($x%3 == 0)
+            <div  class="card-deck">
+            @endif
+                <div style="" class="card mb-3" >
                     
                         
-                            <img  style="" class="card-img-top" src="storage/cover_images/{{ $teacher->cover_image }}" alt="Card image" height=325px; >
+                            <img  style="" class="card-img-top" src="storage/cover_images/{{ $teachers[$x]->cover_image }}" alt="Card image" height=325px; >
 
                             <div class="card-body">
-                                    <h2 class="card-title" style="color:#566f90; font-family:'21st Century', fantasy"><u>Prof. {{ $teacher->name }}</u></h2>
-                                    <p style="font-size:24px; font-family:cursive" class="card-text">{{ $teacher->description }}</p>
-                                <p style="text-align:right; height:auto; width:auto;" class="card-footer blockquote">-Proud Teacher at SGT</p>
+                                    <h2 class="card-title" style="color:#121254; font-family:'21st Century', fantasy"><u>Prof. {{ $teachers[$x]->name }}</u></h2>
+                                    <p style="font-size:24px; font-family:cursive" class="card-text">{{ $teachers[$x]->description }}</p>
+                                <p style="text-align:right; height:auto; width:auto; background-color:#121254;color:#FFAE77;" class="card-footer blockquote">-Proud Teacher at SGT</p>
                                   </div>
                           </div>
- 
+            @if($x%3 == 2 || $x == count($teachers)-1)
+                </div>
+            @endif
+        @endfor
                 
-                {{-- <hr>
-                <div class="col-md-1 col-lg-1"></div>
-                <div class="col-md-2 col-lg-2">
-                        <img src="none.jpg" class="rounded-circle" style="border: 2px solid black;200px alt="noimage" width=200px; height=225px; >        
-                </div> 
-                <div class="col-md-9     col-lg-9 jumbotron">
-                    <h2  style="color:#566f90;"><u>Prof. {{ $teacher->name }}</u></h2>
-                    <h4>Teacher</h4>     
-                <p>{{ $teacher->description }}</p>
-                <hr style="border: 1px solid black">
-                </div> 
-            </div> --}}
-
-        @endforeach
-    </div>
     @else
         <p>No teachers!</p>
     @endif
+</div>
 
+
+<script>
+    $(document).ready(function(){
+        $("#shows").hide();
+  $("#shs").click(function(){
+    $("#shows").toggle();
+  });
+});
+</script>
 @endsection

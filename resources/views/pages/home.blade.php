@@ -42,16 +42,16 @@ font-family: 'Open Sans', sans-serif;
       </div>   
     </div>
     <div class="carousel-item">
-      <img style="opacity:0.2" class="d-block w-100" src="c44.jpg" alt="none.png" width="1100" height="500">
+      <img style="opacity:0.3" class="d-block w-100" src="c4.jpg" alt="none.png" width="1100" height="500">
       <div class="carousel-caption">
-        <h1 style="color:#121254;">Conducting Interactive Sessions for children</h1>
+        <h1 style="color:#121254; font-variant: small-caps;">Our motive is Conducting Interactive Sessions for children</h1>
       </div>   
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="logo.png" alt="none.png" width="1100" height="500">
-      <div class="carousel-caption">
+      <img class="d-block w-100" src="c5.jpg" alt="none.png" width="1100" height="500">
+      {{-- <div class="carousel-caption">
         <h3 style="background-color:black;">Shiksha Group Tuitions!</h3>
-      </div>   
+      </div>    --}}
     </div>
   </div>
   <a class="carousel-control-prev" href="#demo" data-slide="prev">
@@ -66,10 +66,10 @@ font-family: 'Open Sans', sans-serif;
   
   <div class="container">
   
-    <div class="card-deck">
+    <div  class="card-deck">
     <div class="card bg-light">
       <div class="card-header bg-secondary text-white">
-          <div style="font-size:20px; text-align:center;" class="">
+          <div style="font-size:20px; text-align:center;  color:#121254" class="">
               <div>
                   Engineering Maths and Programming!
               </div>
@@ -85,7 +85,7 @@ font-family: 'Open Sans', sans-serif;
 
       <div class="card bg-light">
           <div class="card-header bg-secondary text-white">
-              <div style="font-size:20px; text-align:center;" class="">
+              <div style="font-size:20px; text-align:center; color:#121254;" class="">
                   <div>
                       All subjects for SSC and CBSE VIII, IX & X
                   </div>
@@ -101,7 +101,7 @@ font-family: 'Open Sans', sans-serif;
 
           <div class="card bg-light">
               <div class="card-header bg-secondary text-white">
-                  <div style="font-size:20px; text-align:center;" class="">
+                  <div style="font-size:20px; text-align:center; color:#121254;" class="">
                       <div>
                           French Language and Training for all ages!
                       </div>
