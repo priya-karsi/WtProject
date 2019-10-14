@@ -17,6 +17,9 @@
         @csrf
         <div class="col-md-4 col-lg-4">
                 <label for="teacher_id" style="font-size:18px;" class="col-form-label text-md-right">{{ __('To : ') }}</label>
+        </div>
+        <div class="col-md-4 col-lg-4">
+                <label for="teacher_id" style="font-size:18px;" class="col-form-label text-md-right">{{ __('To : ') }}</label>
                 <div class="form-group" >
                         <select class="form-control"  name="standard" id="standard">
                                 <option  class="down" value="8">Standard VIII</option>
@@ -25,8 +28,8 @@
                         </select>
                     </div>
         </div>
-        <div class="col-md-2 col-lg-2"></div>
-        <div class="col-md-6 col-lg-6">
+        
+        <div class="col-md-4 col-lg-4">
             <label for="teacher_id" style="font-size:18px;" class="col-form-label text-md-right">{{ __('Names of Students : ') }}</label>
             <div id="print">
 
