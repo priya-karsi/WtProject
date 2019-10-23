@@ -92,7 +92,7 @@ font-family: 'Open Sans', sans-serif;
               </div>
           </div>
           <div class="card-body text-center cont">
-            <p class="card-text">Prof. Nitesh Karsi being the professor of engineering batch observed that the base of students is not that strong.</p>
+            <p class="card-text">Prof. ABC being the professor of engineering batch observed that the base of students is not that strong.</p>
             <p class="card-text">Thus he thought of starting the school section.</p>
             <p class="card-text">We aim at <span style="color:red;">building base</span> of each and every student.</p>
             <p class="card-text">Also to inculcate good values in students from the start is our motive.</p>
