@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Teacher;
 use App\Student;
@@ -84,12 +85,13 @@ class PagesController extends Controller
         $lectures = Lecture::all();
         $teachers = Teacher::all();
         $flag = 0;
+        $total = DB::table('schedules')->where('standard',$std)->join('lectures','lectures.schedule','=','schedules.id')->join('teachers','lectures.teacher_id','=','teachers.id')->orderBy('date','DESC')->get();
         $date = Carbon::now()->format('Y-m-d');
         if($schedules[0]->date == $date)
         {
             $flag = 1;
         }
-        return view('pages/studentschedule',['flag' => $flag,'schedules' => $schedules,'lectures' => $lectures,'teachers' => $teachers]);
+        return view('pages/studentschedule',['total' => $total,'flag' => $flag,'schedules' => $schedules,'lectures' => $lectures,'teachers' => $teachers]);
     }
     public function teacherschedule() {
         $user = Auth::user();
@@ -98,7 +100,8 @@ class PagesController extends Controller
         $lectures = Lecture::where('teacher_id',$id)->get();
         $schedules = Schedule::orderBy('date','DESC')->get();
         $date = Carbon::now()->format('Y-m-d');
-        return view('pages/teacherschedule',['mainsalary' => $mainsalary,'today' => $date,'lectures' => $lectures,'schedules' => $schedules]);
+        $total = DB::table('lectures')->where('teacher_id',$id)->join('schedules','lectures.schedule','=','schedules.id')->get();
+        return view('pages/teacherschedule',['total' => $total,'mainsalary' => $mainsalary,'today' => $date,'lectures' => $lectures,'schedules' => $schedules]);
     }
 
     public function viewcomments() {
