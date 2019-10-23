@@ -25,15 +25,15 @@ class PagesController extends Controller
         return view('pages/home');
     }
     public function about(){
-        $teachers = Teacher::all();
+        $teachers = DB::select('select * from `teachers`');
         return view('pages.about')-> with('teachers',$teachers);
     }
     public function addcomment() {
-        $students = Student::all();
+        $students = DB::select('select * from `students`');
         return view('pages/comment')-> with('students',$students);
     }
     public function storecomment(Request $request) {
-        $teacher = Teacher::where('name',$request['teacher_name'])->first();
+        $teacher = DB::select('select distinct * from `teachers` where `name` = '.$request['teacher_name']);
         $tid = $teacher['id'];
         $student = Student::where('name',$request['student_name'])->first();
         $id = $student['id'];
@@ -50,7 +50,7 @@ class PagesController extends Controller
     //     'password' => Hash::make($request['password']),
     // ]);
     public function viewSchedule() {
-        $teachers = Teacher::all();
+        $teachers = DB::select('select * from `teachers`');
         return view('pages/adminschedule')->with('teachers',$teachers);
     }
     public function createSchedule(Request $request) {
@@ -85,7 +85,7 @@ class PagesController extends Controller
         $lectures = Lecture::all();
         $teachers = Teacher::all();
         $flag = 0;
-        $total = DB::table('schedules')->where('standard',$std)->join('lectures','lectures.schedule','=','schedules.id')->join('teachers','lectures.teacher_id','=','teachers.id')->orderBy('date','DESC')->get();
+        $total = DB::select('select * from `schedules` inner join `lectures` on `lectures`.`schedule` = `schedules`.`id` inner join `teachers` on `lectures`.`teacher_id` = `teachers`.`id` where `standard` = '.$std.' order by `date` desc');
         $date = Carbon::now()->format('Y-m-d');
         if($schedules[0]->date == $date)
         {
@@ -100,17 +100,17 @@ class PagesController extends Controller
         $lectures = Lecture::where('teacher_id',$id)->get();
         $schedules = Schedule::orderBy('date','DESC')->get();
         $date = Carbon::now()->format('Y-m-d');
-        $total = DB::table('lectures')->where('teacher_id',$id)->join('schedules','lectures.schedule','=','schedules.id')->get();
+        $total = DB::select('select * from `lectures` inner join `schedules` on `lectures`.`schedule` = `schedules`.`id` where `teacher_id` = '.$id);
         return view('pages/teacherschedule',['total' => $total,'mainsalary' => $mainsalary,'today' => $date,'lectures' => $lectures,'schedules' => $schedules]);
     }
 
     public function viewcomments() {
         $user = Auth::user();
         $id = $user->id;
-        $comments = Comment::where('student_id',$id)->get();
+        $comments = DB::select('select * from `comments` where `student_id` = '.$id);
         for($x = 0;$x < count($comments);$x++)
         {
-            $teacher_id = Teacher::where('id',$comments[$x]->teacher_id)->get();
+            $teacher_id = DB::select('select * from `teachers` where `id` = '.$comments[$x]->teacher_id);
             $comments[$x]->teacher_name = $teacher_id[0]->name;
         }
         //echo $comments;
@@ -150,17 +150,18 @@ class PagesController extends Controller
     public function viewworksheet() {
         $user = Auth::user();
         $standard = $user->standard;
-        $worksheets = Worksheet::where('standard',$standard)->get();
+        $worksheets = DB::select('select * from `worksheets` where `standard` = '.$standard);
+        $uni_key = DB::select('select ');
         for($x = 0;$x < count($worksheets);$x++)
         {
-            $name = Teacher::where('id',$worksheets[$x]->teacher_id)->get();
+            $name = DB::select('select * from `teachers` where `id` = '.$worksheets[$x]->teacher_id.' limit 1');
             $worksheets[$x]->teacher = $name[0]->name;
             //echo $worksheets[$x]->teacher;
         }
         return view('pages/viewworksheet',['worksheets' => $worksheets]);
     }
     public function viewmail() {
-        $students = Student::all();
+        $students = DB::select('select * from `students`');
         //echo $students;
         return view('emails/viewmail',['students' => $students]);
     }
@@ -170,7 +171,7 @@ class PagesController extends Controller
         $students = explode(",",$studentsinfo);
         if(isset($students)) { 
         foreach($students as $student) {
-                $std = Student::where('name',$student)->get();
+                $std = DB::select('select * from `students` where `name`='.$student);
                 $email = $std[0]->parent_email;
                 Mail::to($email)->send(new SendMailable($std,$request['send_info']));
 
