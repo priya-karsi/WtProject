@@ -134,14 +134,7 @@
         </div>
 </div>
 
-    
 
-
-    
-    
-    
-    
-    
 </div>
     <script>
         $(document).ready(function() {
@@ -307,7 +300,6 @@ $("#hs").show();
 });
         
     });
-
                 
     </script>
 @endsection

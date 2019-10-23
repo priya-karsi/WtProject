@@ -11,8 +11,6 @@
     }
 </style>
 <div class="schedule">
-
-
 <div class="container" style="padding-top:10px;">
     {{-- <div class="jumbotron">
     <div class="card"> --}}
@@ -22,20 +20,14 @@
         <h1 style="text-align:right; color:#ff6933;" >Today's Schedule: </h1>
         <h6 style="color:#121254">({{ $schedules[$x]->date }})</h6>
         </div>
-        @for($y = 0;$y < count($lectures);$y++)
-            @if($lectures[$y]->schedule == $schedules[$x]->id)
+        @for($y = 0;$y < count($total);$y++)
             {{-- <div class="card">
             <div class="card-body"> --}}
-                <h3 style="text-align:right; color:white;">{{ $lectures[$y]->time_in }} - {{ $lectures[$y]->time_out }}</h3>
-                @for($z = 0;$z < count($teachers);$z++)
-                    @if($teachers[$z]->id == $lectures[$y]->teacher_id)
-                    <p style="text-align:right; color:white;"><b>Subject : </b>{{ $teachers[$z]->subject }} </p>   
+                <h3 style="text-align:right; color:white;">{{ $total[$y]->time_in }} - {{ $total[$y]->time_out }}</h3>
+                    <p style="text-align:right; color:white;"><b>Subject : </b>{{ $total[$z]->subject }} </p>   
                 {{-- </div> --}}
-                    <p style="text-align:right; color:white; font-style:italic;">- By Prof. {{ $teachers[$z]->name }}</p>
+                    <p style="text-align:right; color:white; font-style:italic;">- By Prof. {{ $total[$z]->name }}</p>
                 {{-- </div> --}}
-                    @endif
-                @endfor
-            @endif
         @endfor
         <!--{{ $x++ }}-->
     @else
@@ -53,23 +45,15 @@
      </div>
         <div style="text-align:right;" id="shown">
         @if(count($schedules) > 0)
-            @for(;$x < count($schedules);$x++)
-                <h2 style="padding-left:20px; color:#121254" id="show_"+$x>For Day : {{ $schedules[$x]->date }}</h2>
-                @for($y = 0;$y < count($lectures);$y++)
-                    @if($lectures[$y]->schedule == $schedules[$x]->id)
+            @for(;$x < count($total);$x++)
+                <h2 style="padding-left:20px; color:#121254" id="show_"+$x>For Day : {{ $total[$x]->date }}</h2>
                     {{-- <div class="card">
                             <div class="card-body"> --}}
-                        <h3 style="color:white;">{{ $lectures[$y]->time_in }} - {{ $lectures[$y]->time_out }}</h3>
-                        @for($z = 0;$z < count($teachers);$z++)
-                            @if($teachers[$z]->id == $lectures[$y]->teacher_id)
-                                <p><b>Subject : </b>{{ $teachers[$z]->subject }} </p>
+                        <h3 style="color:white;">{{ $total[$x]->time_in }} - {{ $total[$x]->time_out }}</h3>
+                                <p><b>Subject : </b>{{ $total[$x]->subject }} </p>
                             
-                                <p style="font-style:italic;">- By Prof.{{ $teachers[$z]->name }}</p>
-                            
-                            @endif
-                        @endfor
-                    @endif
-                @endfor
+                                <p style="font-style:italic;">- By Prof.{{ $total[$x]->name }}</p>
+            
             @endfor
     <br>
         @endif

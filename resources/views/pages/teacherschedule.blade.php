@@ -1,14 +1,14 @@
 @extends('layouts.main')
 @section('content')
 <style>
-        .schedule{
-            background-image: url("{{ asset('/storage/bg/s.jpg') }}");
-            background-repeat: no-repeat;
-            background-size: cover;
-            
-             background-blend-mode: lighten;
-             background-color: rgba(255, 255, 255, 0.1);
-        }
+    .schedule{
+        background-image: url("{{ asset('/storage/bg/s.jpg') }}");
+        background-repeat: no-repeat;
+        background-size: cover;
+        
+            background-blend-mode: lighten;
+            background-color: rgba(255, 255, 255, 0.1);
+    }
     </style>
 <div class="schedule">
 
@@ -20,16 +20,14 @@
         <h1 style="text-align:right; color:#ff6933;" class="">Today's Schedule : </h1>
         <h6 style="color:#121254">({{ $today }})</h6>
         </div>
-        @for($y = 0;$y < count($lectures);$y++)
-            @for($x = 0;$x < count($schedules);$x++)
-                @if($schedules[$x]->date == $today && $lectures[$y]->schedule == $schedules[$x]->id)
+        @for($y = 0;$y < count($total);$y++)
+                @if($total[$y]->date == $today)
                 <div class="">
-                    <h3 style="text-align:right; color:white;" class="">{{ $lectures[$y]->time_in }} To {{ $lectures[$y]->time_out }}</h3>
-                    <h4 style="text-align:right; color:white; font-style:italic;"class="">- {{ $schedules[$x]->standard }}<sup>th</sup> Standard</h4>
+                    <h3 style="text-align:right; color:white;" class="">{{ $total[$y]->time_in }} To {{ $total[$y]->time_out }}</h3>
+                    <h4 style="text-align:right; color:white; font-style:italic;"class="">- {{ $total[$x]->standard }}<sup>th</sup> Standard</h4>
                     {{-- @unset($schedules[$x]) --}}
                 </div>
                 @endif
-            @endfor
         @endfor
     
 </div>
@@ -39,17 +37,15 @@
                 <button class="btn btn-default;" id="view"><h1 style="text-align:right; color:#ff6933;">Past Schedules:</h1>
         </div>
         <div style="text-align:right;" id="shown">
-        @for($y = 0;$y < count($lectures);$y++)
-            @for($x = 0;$x < count($schedules);$x++)
-                @if($schedules[$x]->id == $lectures[$y]->schedule && $schedules[$x]->date != $today)
+        @for($y = 0;$y < count($total);$y++)
+                @if($total[$y]->date != $today)
                     <div id="shown" class="">
-                <h2 style="padding-left:20px; color:#121254">{{ $schedules[$x]->date }}</h2>
-                <h3 style="color:white;">From {{ $lectures[$y]->time_in }} To {{ $lectures[$y]->time_out }}</h3>
-                <h3 style="font-style:italic;">- {{ $schedules[$x]->standard }}<sup>th</sup> Standard</h3>
+                <h2 style="padding-left:20px; color:#121254">{{ $total[$y]->date }}</h2>
+                <h3 style="color:white;">From {{ $total[$y]->time_in }} To {{ $total[$y]->time_out }}</h3>
+                <h3 style="font-style:italic;">- {{ $total[$y]->standard }}<sup>th</sup> Standard</h3>
                     <!--{{ $salary++ }}-->
                 </div>
                 @endif
-            @endfor
         @endfor
     </div>
     <div style="text-align:right;">
