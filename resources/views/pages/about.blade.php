@@ -21,7 +21,7 @@
                         </div>
                         <div class="col-md-8 col-lg-8">
                                 <div class="card-body">
-                                        <h1  style="color:#121254; font-family:'21st Century', fantasy" class="card-title">Prof. Nitesh Karsi</h1>
+                                        <h1  style="color:#121254; font-family:'21st Century', fantasy" class="card-title">Prof. ABC</h1>
                                         <p style="font-size:24px; font-family:cursive" class="card-text"><b>Hello, I am the cofounder of SGT. I have completed my engineering and I have done M.E. from ABC college. I believe in the base foundation of a child.</b></p>
                                         <p style="text-align:right; height:auto; width:auto; background-color:#121254;color:#FFAE77;" class="card-footer blockquote">Co-Founder</p>
                                       </div>  
@@ -33,7 +33,7 @@
                     <div class="row no-gutters">
                             <div class="col-md-8 col-lg-8">
                                     <div class="card-body">
-                                            <h1  style="color:#121254; font-family:'21st Century', fantasy" class="card-title">Prof. Nitesh Karsi</h1>
+                                            <h1  style="color:#121254; font-family:'21st Century', fantasy" class="card-title">Prof. XYZ</h1>
                                             <p style="font-size:24px; font-family:cursive" class="card-text"><b>Hello, I am the cofounder of SGT. I have completed my engineering and I have done M.E. from ABC college. I believe in the base foundation of a child.</b></p>
                                             <p style="text-align:left; height:auto; width:auto; background-color:#121254;color:#FFAE77;" class="card-footer blockquote">Co-Founder</p>
                                           </div>  

@@ -16,7 +16,7 @@
     <div class="row">
         @csrf
         <div class="col-md-4 col-lg-4">
-                <label for="teacher_id" style="font-size:18px;" class="col-form-label text-md-right">{{ __('To : ') }}</label>
+                <label for="teacher_id" style="font-size:18px;" class="col-form-label text-md-right"></label>
         </div>
         <div class="col-md-4 col-lg-4">
                 <label for="teacher_id" style="font-size:18px;" class="col-form-label text-md-right">{{ __('To : ') }}</label>

@@ -28,7 +28,7 @@
                         </div>
                 </div>
                 <div class="form-group row">
-                        <label for="cover_image" class="col-md-4 col-form-label text-md-right">{{ __('Cover Image') }}</label>
+                        <label for="cover_image" class="col-md-4 col-form-label text-md-right">{{ __('Upload Worksheet') }}</label>
 
                         <div class="col-md-6">
                             <input type="file" class="form-control @error('cover_image') is-invalid @enderror" name="file">
@@ -55,7 +55,7 @@
                 <div class="form-group row mb-0">
                     <div class="col-md-6 offset-md-4">
                         <button type="submit" class="btn btn-primary">
-                            {{ __('Register') }}
+                            {{ __('Submit') }}
                         </button>
                     </div>
                 </div>
