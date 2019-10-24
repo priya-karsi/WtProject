@@ -33,7 +33,7 @@ class PagesController extends Controller
         return view('pages/comment')-> with('students',$students);
     }
     public function storecomment(Request $request) {
-        $teacher = DB::select('select distinct * from `teachers` where `name` = '.$request['teacher_name']);
+        $teacher = Teacher::where('name',$request['teacher_name'])->first();
         $tid = $teacher['id'];
         $student = Student::where('name',$request['student_name'])->first();
         $id = $student['id'];
@@ -151,14 +151,15 @@ class PagesController extends Controller
         $user = Auth::user();
         $standard = $user->standard;
         $worksheets = DB::select('select * from `worksheets` where `standard` = '.$standard);
-        $uni_key = DB::select('select ');
+        // $uni_key = DB::select('SELECT left (file, count(file) -3) FROM worksheets');
+        // echo $uni_key;
         for($x = 0;$x < count($worksheets);$x++)
         {
             $name = DB::select('select * from `teachers` where `id` = '.$worksheets[$x]->teacher_id.' limit 1');
             $worksheets[$x]->teacher = $name[0]->name;
             //echo $worksheets[$x]->teacher;
         }
-        return view('pages/viewworksheet',['worksheets' => $worksheets]);
+        //return view('pages/viewworksheet',['worksheets' => $worksheets]);
     }
     public function viewmail() {
         $students = DB::select('select * from `students`');
