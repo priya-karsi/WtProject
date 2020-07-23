@@ -1,4 +1,4 @@
-# SGT
+# CIMS
 
 ### About ###
 - An all in one platform for admin/teacher/student for managing the institute.
