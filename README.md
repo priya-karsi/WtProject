@@ -2,12 +2,12 @@
 
 ---
 
-## About
+### About ###
 - An all in one platform for admin/teacher/student for managing the institute.
 
 ---
 
-## Student
+### Student ###
 
 - If you login through as student(Because you cannot make an account for student, only admin can add students into the database)
 - You can view your schedules, of today and of previous days.
@@ -16,7 +16,7 @@
 
 ---
 
-## Teacher
+### Teacher ###
 
 - If you login through as teacher(Same rule- only admin can add teacher)
 - You can view your schedule, of today and of previous days.
@@ -25,7 +25,7 @@
 
 ---
 
-## Admin
+### Admin ###
 
 - Register a Student/Teacher to make their logins and other features they can use.
 - Make schedules - For a particular standard and various subjects contained inside lectures in tat schedule..and the same can be viewed by that respective standard - stduent and subject teachers.
@@ -33,6 +33,6 @@
 
 ---
 
-## Side Pages-
+### Side Pages- ###
 - Home page - Showcasing some corousals and which subjects are taken in our institute
 - About page - Showcasing the teaching staff of our institute.
